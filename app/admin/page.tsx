@@ -119,7 +119,7 @@ export default function AdminPage() {
 
   const loadCampaigns = useCallback(async () => {
     try {
-      const response = await adminRequest("/campaigns");
+      const response = await adminRequest<Campaign[]>("/campaigns");
 
       setCampaigns(response.data ?? []);
     } catch (error) {
@@ -306,10 +306,10 @@ export default function AdminPage() {
         subscribersResponse,
         campaignsResponse,
       ] = await Promise.all([
-        adminRequest("/dashboard"),
-        adminRequest("/contacts"),
-        adminRequest("/subscribers"),
-        adminRequest("/campaigns"),
+        adminRequest<Dashboard>("/dashboard"),
+        adminRequest<Contact[]>("/contacts"),
+        adminRequest<Subscriber[]>("/subscribers"),
+        adminRequest<Campaign[]>("/campaigns"),
       ]);
 
       setDashboard(dashboardResponse.data ?? null);
