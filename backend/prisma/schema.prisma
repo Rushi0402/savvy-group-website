@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  phone     String
+  email     String
+  message   String
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+}
+
+model Subscriber {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  isSubscribed Boolean  @default(true)
+  createdAt    DateTime @default(now())
+}
+
+model Campaign {
+  id          Int       @id @default(autoincrement())
+  title       String
+  subject     String
+  previewText String
+  type        String
+  content     String
+  status      String    @default("draft")
+  sentAt      DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  recipients  Int       @default(0)
+}
