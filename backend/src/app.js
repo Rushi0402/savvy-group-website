@@ -36,32 +36,19 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-// Handle browser preflight requests
-app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// =======================
-// Routes
-// =======================
-
 app.use("/api/contact", contactRoutes);
-
 app.use("/api/newsletter", newsletterRoutes);
-
 app.use("/api/admin/campaigns", campaignRoutes);
-
 app.use("/api/admin", adminRoutes);
 
 app.get("/", (req, res) => {
   res.send("Savvy Group Backend Running 🚀");
 });
-
-// =======================
-// Error Handler
-// =======================
 
 app.use(errorHandler);
 
