@@ -9,6 +9,7 @@ const errorHandler = require("./middleware/error");
 
 const app = express();
 
+console.log("FRONTEND_URL =", process.env.FRONTEND_URL);
 const corsOptions = {
   origin(origin, callback) {
     const allowedOrigins = (
