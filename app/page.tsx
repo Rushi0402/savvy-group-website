@@ -283,7 +283,7 @@ export default function Home() {
           {/* Logo */}
           <div className="flex items-center gap-4">
             <img
-              src="/logo.png"
+              src="/Logo.png"
               alt="Savvy Group"
               className="w-16 h-16 object-contain"
             />
@@ -376,7 +376,7 @@ export default function Home() {
               <div className="flex justify-center items-center relative">
                 {/* Blurred Logo Background */}
                 <img
-                  src="/logo.png"
+                  src="/Logo.png"
                   alt="Savvy Group Logo"
                   className="w-[1000px] object-contain opacity-15 blur-2x"
                 />
@@ -442,7 +442,7 @@ export default function Home() {
               <div className="flex justify-center items-center relative">
                 {/* Blurred Logo Background */}
                 <img
-                  src="/logo.png"
+                  src="/Logo.png"
                   alt="Savvy Group Logo"
                   className="w-[1000px] object-contain opacity-15 blur-2x"
                 />
@@ -510,7 +510,7 @@ export default function Home() {
               <div className="flex justify-center items-center relative">
                 {/* Blurred Logo Background */}
                 <img
-                  src="/logo.png"
+                  src="/Logo.png"
                   alt="Savvy Group Logo"
                   className="w-[1000px] object-contain opacity-15 blur-2x"
                 />
