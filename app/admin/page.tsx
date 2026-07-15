@@ -78,6 +78,14 @@ type CampaignsViewProps = {
   onDelete: (id: number) => void;
 };
 
+type CampaignForm = {
+  title: string;
+  subject: string;
+  previewText: string;
+  type: CampaignType;
+  content: string;
+};
+
 const statusStyles: Record<ContactStatus, string> = {
   new: "bg-amber-50 text-amber-700 ring-amber-200",
   "in-progress": "bg-sky-50 text-sky-700 ring-sky-200",
@@ -127,13 +135,13 @@ export default function AdminPage() {
     }
   }, []);
 
-  const [campaignForm, setCampaignForm] = useState({
-    title: "",
-    subject: "",
-    previewText: "",
-    type: "newsletter",
-    content: "",
-  });
+const [campaignForm, setCampaignForm] = useState<CampaignForm>({
+  title: "",
+  subject: "",
+  previewText: "",
+  type: "newsletter",
+  content: "",
+});
   const saveCampaign = async () => {
     console.log(campaignForm);
 
@@ -180,7 +188,7 @@ export default function AdminPage() {
     } catch (error) {
       console.error(error);
 
-      toast.success(
+      toast.error(
         editingCampaignId
           ? "Unable to update campaign."
           : "Unable to save campaign.",
@@ -199,7 +207,7 @@ export default function AdminPage() {
       await loadCampaigns();
     } catch (error) {
       console.error(error);
-      toast.success("Unable to delete campaign.");
+      toast.error("Unable to delete campaign.");
     }
   };
 
@@ -209,7 +217,7 @@ export default function AdminPage() {
     setCampaignForm({
       title: campaign.title,
       subject: campaign.subject,
-      previewText: campaign.previewText,
+      previewText: campaign.previewText ?? "",
       type: campaign.type,
       content: campaign.content,
     });
@@ -238,10 +246,10 @@ export default function AdminPage() {
       );
 
       if (!response.success) {
-        throw new Error(response.message);
+        throw new Error(response.message ?? "Unable to send campaign.");
       }
 
-      toast.success(response.message);
+      toast.success(response.message ?? "Campaign sent successfully.");
 
       setCampaignOpen(false);
 
@@ -251,7 +259,7 @@ export default function AdminPage() {
     } catch (error) {
       console.error(error);
 
-      toast.success("Unable to send campaign.");
+      toast.error("Unable to send campaign.");
     }
   };
 
@@ -324,9 +332,13 @@ export default function AdminPage() {
   }, [handleApiError]);
 
   useEffect(() => {
-    if (authenticated) {
-      loadAdminData();
-    }
+    if (!authenticated) return;
+
+    const ensureAdminDataLoaded = async () => {
+      await loadAdminData();
+    };
+
+    void ensureAdminDataLoaded();
   }, [authenticated, loadAdminData]);
 
   useEffect(() => {
