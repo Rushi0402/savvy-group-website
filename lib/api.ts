@@ -3,7 +3,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function apiRequest(
   endpoint: string,
   method: string,
-  body?: any
+  body?: unknown
 ) {
   const response = await fetch(`${API_URL}${endpoint}`, {
     method,
@@ -13,10 +13,22 @@ export async function apiRequest(
     body: body ? JSON.stringify(body) : undefined,
   });
 
-  return response.json();
+  let data;
+console.log("API URL:", API_URL);
+  try {
+    data = await response.json();
+  } catch {
+    throw new Error("Invalid response from server.");
+  }
+
+  if (!response.ok) {
+    throw new Error(data?.message || "Request failed.");
+  }
+
+  return data;
 }
 
-export function submitContact(formData: any) {
+export function submitContact(formData: unknown) {
   return apiRequest("/api/contact", "POST", formData);
 }
 

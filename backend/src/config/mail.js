@@ -1,17 +1,18 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
 });
 
-// Reusable function
-const sendMail = async ({ to, subject, html }) => {
+const sendMail = async ({ from, to, subject, html }) => {
   return transporter.sendMail({
-    from: `"Savvy Group" <${process.env.EMAIL_USER}>`,
+    from: from || `"Savvy Group" <${process.env.EMAIL_USER}>`,
     to,
     subject,
     html,
