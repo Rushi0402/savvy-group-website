@@ -59,7 +59,7 @@ export default function Home() {
       subtitle: "Find Top Talent",
       description:
         "Trusted Security Solutions For Every Industry.",
-      image: "/service1.png",
+      image:"/service1.png",
       icon: Users,
     },
     {
@@ -67,7 +67,7 @@ export default function Home() {
       subtitle: "Clean - Safe - Hygienic",
       description:
         "Professional Housekeeping That Enhances Evey Workplace.",
-      image: "/Housekeeping.png",
+      image:"/Housekeeping.png",
       icon: Handshake,
     },
     {
@@ -75,14 +75,14 @@ export default function Home() {
       subtitle: "Flagship Services",
       description:
         "Maintaining hygienic and productive workplace environments.",
-      image: "/ifm-banner.png",
+      image:"/ifm-banner.png",
       icon: ClipboardList,
     },
     {
       title: "Hospitality Management",
       subtitle: "Guest House Operations",
       description: "Supporting organizations through streamlined operations.",
-      image: "/Hospitality.png",
+      image:"/Hospitality.png",
       icon: Building2,
     },
     {
@@ -90,7 +90,7 @@ export default function Home() {
       subtitle: "Project Mobility",
       description:
         "Delivering dependable support solutions for business growth.",
-      image: "/transportation.png",
+      image:"/transportation.png",
       icon: BikeIcon,
     },
     {
@@ -98,7 +98,7 @@ export default function Home() {
       subtitle: "IT Solutions",
       description:
         "Delivering dependable support solutions for business growth.",
-      image: "/cctv.png",
+      image:"/cctv.png",
       icon: Briefcase,
     },
     {
@@ -106,7 +106,7 @@ export default function Home() {
       subtitle: "Professional Workforce Solutions",
       description:
         "Delivering dependable support solutions for business growth.",
-      image: "/manpower.png",
+      image:"/manpower.png",
       icon: Briefcase,
     },
     
