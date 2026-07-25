@@ -59,7 +59,7 @@ export default function Home() {
       subtitle: "Find Top Talent",
       description:
         "Trusted Security Solutions For Every Industry.",
-      image:"/service1.png",
+      image:"/Service1.png",
       icon: Users,
     },
     {
@@ -67,7 +67,7 @@ export default function Home() {
       subtitle: "Clean - Safe - Hygienic",
       description:
         "Professional Housekeeping That Enhances Evey Workplace.",
-      image:"/Housekeeping.png",
+      image:"/housekeeping.png",
       icon: Handshake,
     },
     {
@@ -82,7 +82,7 @@ export default function Home() {
       title: "Hospitality Management",
       subtitle: "Guest House Operations",
       description: "Supporting organizations through streamlined operations.",
-      image:"/Hospitality.png",
+      image:"/hospitality.png",
       icon: Building2,
     },
     {
