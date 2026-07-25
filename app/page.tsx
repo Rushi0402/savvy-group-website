@@ -10,7 +10,7 @@ import { Josefin_Sans } from "next/font/google";
 import CountUp from "react-countup";
 import { useState, useEffect } from "react";
 import { Navigation } from "swiper/modules";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { BikeIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -55,52 +55,61 @@ export default function Home() {
 
   const services = [
     {
-      title: "Human Resource Management",
+      title: "Sercurity Services",
       subtitle: "Find Top Talent",
       description:
-        "Providing skilled manpower solutions tailored to organizational requirements.",
+        "Trusted Security Solutions For Every Industry.",
       image: "/service1.png",
       icon: Users,
     },
     {
-      title: "Industrial Relations",
-      subtitle: "Workplace Harmony",
+      title: "Housekeeping Services",
+      subtitle: "Clean - Safe - Hygienic",
       description:
-        "Building strong employer-employee relationships through effective workforce management.",
-      image: "/service2.jpg",
+        "Professional Housekeeping That Enhances Evey Workplace.",
+      image: "/Housekeeping.png",
       icon: Handshake,
     },
     {
-      title: "Security Services",
-      subtitle: "Reliable Protection",
-      description:
-        "Professional security personnel ensuring safety and operational continuity.",
-      image: "/service3.png",
-      icon: ShieldCheck,
-    },
-    {
-      title: "Housekeeping Services",
-      subtitle: "Clean Environment",
+      title: "Integrated Facility Management",
+      subtitle: "Flagship Services",
       description:
         "Maintaining hygienic and productive workplace environments.",
-      image: "/service4.png",
+      image: "/ifm-banner.png",
       icon: ClipboardList,
     },
     {
-      title: "Operations Management",
-      subtitle: "Efficient Processes",
+      title: "Hospitality Management",
+      subtitle: "Guest House Operations",
       description: "Supporting organizations through streamlined operations.",
-      image: "/service5.jpg",
+      image: "/Hospitality.png",
       icon: Building2,
     },
     {
-      title: "Business Support Services",
-      subtitle: "Growth Support",
+      title: "Trasportation Support Services",
+      subtitle: "Project Mobility",
       description:
         "Delivering dependable support solutions for business growth.",
-      image: "/service6.jpg",
+      image: "/transportation.png",
+      icon: BikeIcon,
+    },
+    {
+      title: "Smart Technology Solutions",
+      subtitle: "IT Solutions",
+      description:
+        "Delivering dependable support solutions for business growth.",
+      image: "/cctv.png",
       icon: Briefcase,
     },
+    {
+      title: "Manpower Services",
+      subtitle: "Professional Workforce Solutions",
+      description:
+        "Delivering dependable support solutions for business growth.",
+      image: "/manpower.png",
+      icon: Briefcase,
+    },
+    
   ];
 
   const [showNavbar, setShowNavbar] = useState(true);
@@ -879,13 +888,13 @@ export default function Home() {
           className="text-base sm:text-lg lg:text-xl text-slate-700 leading-8 lg:leading-10 text-justify"
           style={{ fontFamily: "Book Antiqua" }}
         >
-          Since 2014, Savvy Resources & Management has been empowering
-          businesses with reliable manpower and workforce solutions. Our
-          expertise spans security services, housekeeping, industrial
-          operations, and business support functions. Through a commitment
-          to excellence, professionalism, and client success, we enable
-          organizations to achieve operational efficiency and long-term
-          growth.
+          Since 2014, Savvy Group has been delivering comprehensive workforce and facility 
+          management solutions to leading organizations across India. With expertise spanning 
+          security services, housekeeping, manpower, guest house management, catering, transportation, 
+          and integrated facility management, we help businesses streamline operations with reliability 
+          and professionalism. Backed by experienced teams, strong compliance practices, and a client-first 
+          approach, we provide customized solutions that enhance productivity, reduce operational challenges, 
+          and support sustainable business growth.
         </p>
 
         <button
@@ -1029,13 +1038,13 @@ export default function Home() {
 </section>
 
     
-      {/* our service */}
-
+ {/* OUR SERVICES */}
 <section id="services" className="py-16 sm:py-20 lg:py-24 bg-[#F8FAF9]">
   <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
     {/* Heading */}
     <div className="text-center mb-14 lg:mb-16">
-      <p className="uppercase tracking-[3px] sm:tracking-[4px] text-[#005C5C] font-semibold text-xs sm:text-sm">
+      <p className="uppercase tracking-[4px] text-[#005C5C] font-semibold text-sm">
         OUR SERVICES
       </p>
 
@@ -1048,131 +1057,120 @@ export default function Home() {
       </p>
     </div>
 
-    <Swiper
-      modules={[Navigation, Autoplay]}
-      spaceBetween={30}
-      autoplay={{
-        delay: 4000,
-        disableOnInteraction: false,
-      }}
-      loop
-      breakpoints={{
-        0: {
-          slidesPerView: 1,
-        },
-        640: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        1200: {
-          slidesPerView: 3,
-        },
-      }}
-    >
-      {services.map((service, index) => {
+    {/* First 6 Services */}
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+      {services.slice(0, 6).map((service, index) => {
         const Icon = service.icon;
 
         return (
-          <SwiperSlide key={index}>
-            <div
-              className="
-                bg-white
-                rounded-[30px]
-                p-5
-                lg:p-6
-                shadow-lg
-                hover:shadow-2xl
-                hover:-translate-y-2
-                transition-all
-                duration-300
-                h-full
-              "
-            >
-              {/* Image */}
-              <div className="relative">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-[220px] sm:h-[240px] lg:h-[260px] object-cover rounded-[25px]"
-                />
+          <div
+            key={index}
+            className="group bg-white rounded-[30px] p-5 lg:p-6 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+          >
+            {/* Image */}
+            <div className="relative rounded-[25px]">
 
-                <div className="absolute -bottom-4 right-5 w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#005C5C] border-4 border-white flex items-center justify-center shadow-lg">
-                  <Icon
-                    className="w-7 h-7 lg:w-9 lg:h-9 text-[#D6AE45]"
-                  />
-                </div>
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-[220px] sm:h-[240px] lg:h-[260px] object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+
+              <div className="absolute -bottom-5 right-5 w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#005C5C] border-4 border-white flex items-center justify-center shadow-lg">
+                <Icon className="w-7 h-7 lg:w-9 lg:h-9 text-[#D6AE45]" />
               </div>
 
-              {/* Content */}
-              <p className="mt-8 text-[#005C5C] text-base lg:text-lg">
-                {service.subtitle}
-              </p>
-
-              <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mt-3 leading-tight min-h-[70px] lg:min-h-[90px]">
-                {service.title}
-              </h3>
-
-              <div className="border-t border-slate-200 my-6"></div>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-7 lg:leading-8">
-                {service.description}
-              </p>
             </div>
-          </SwiperSlide>
+
+            {/* Content */}
+
+            <p className="mt-8 text-[#005C5C] text-base lg:text-lg font-medium">
+              {service.subtitle}
+            </p>
+
+            <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mt-3 leading-tight min-h-[80px]">
+              {service.title}
+            </h3>
+
+            <div className="border-t border-slate-200 my-6"></div>
+
+            <p className="text-slate-600 text-sm sm:text-base leading-7 lg:leading-8">
+              {service.description}
+            </p>
+
+          </div>
         );
       })}
-    </Swiper>
+    </div>
 
-    <div className="mt-12 flex justify-center">
-      <Link
-        href="/services"
-        className="
-          group
+    {/* Explore More */}
+    <div className="relative my-20 text-center">
+
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-24 bg-[#0C8F89]/20 blur-[90px] rounded-full"></div>
+
+      <div className="relative">
+
+        
+
+        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3">
+          Explore Our Complete Service Portfolio
+        </h3>
+
+        <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
+          Discover additional workforce, transportation, facility management,
+          technology and business support services tailored to your needs.
+        </p>
+
+        <Link
+          href="/services"
+          className="
+          mt-8
           inline-flex
           items-center
           gap-3
           rounded-full
-          border
-          border-[#005C5C]
-          bg-white
-          px-6
-          sm:px-8
-          py-3
-          sm:py-4
-          text-sm
-          sm:text-base
+          bg-gradient-to-r
+          from-[#005C5C]
+          to-[#008080]
+          px-10
+          py-4
+          text-white
           font-semibold
-          text-[#005C5C]
-          shadow-lg
+          text-lg
+          shadow-xl
           transition-all
-          duration-300
-          hover:bg-[#005C5C]
-          hover:text-white
-        "
-      >
-        Explore More Services
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
+          duration-500
+          hover:scale-105
+          hover:shadow-[0_20px_45px_rgba(0,92,92,0.35)]
+          group
+          "
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
-      </Link>
+          Explore More Services
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+
+        </Link>
+
+      </div>
+
     </div>
+
   </div>
 </section>
-
       {/* WHY CHOOSE US */}
 <section id="why-us" className="py-16 sm:py-20 lg:py-24 bg-[#F8FAF9]">
   <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -1415,7 +1413,7 @@ export default function Home() {
   </div>
 </section>
 
-      {/* OUR PRESENCE ACROSS INDIA */}
+{/* OUR PRESENCE ACROSS INDIA */}
 
 <section className="bg-[#f6f7f9] relative py-16 sm:py-20 lg:py-24">
   <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -1434,9 +1432,8 @@ export default function Home() {
       </h2>
 
       <p className="text-slate-600 text-base sm:text-lg lg:text-xl mt-6 leading-8 max-w-3xl">
-        Delivering reliable manpower, security services, housekeeping,
-        industrial relations and business support solutions across
-        multiple states.
+        Delivering integrated workforce, security, housekeeping, guest house management,
+         transportation, and facility management solutions across multiple states.
       </p>
     </div>
 
@@ -1508,7 +1505,7 @@ export default function Home() {
             <h3 className="text-3xl sm:text-4xl font-bold text-slate-900">
               {inView && (
                 <CountUp
-                  end={5000}
+                  end={1000}
                   duration={3}
                   separator=","
                 />
@@ -1709,6 +1706,161 @@ export default function Home() {
   </div>
 </section>
 
+{/* ===================== OUR CLIENTS ===================== */}
+
+<section
+  id="clients"
+  className="py-16 sm:py-20 lg:py-24 overflow-hidden bg-[#F5FAFA]"
+>
+  <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    {/* Heading */}
+    <div className="text-center mb-12 lg:mb-16">
+
+      <div className="flex items-center justify-center gap-3 sm:gap-4 mb-5">
+        <span className="w-10 sm:w-16 h-[2px] bg-[#D6AE45]" />
+
+        <span className="uppercase tracking-[3px] sm:tracking-[5px] text-[#D6AE45] text-xs sm:text-sm font-semibold">
+          OUR CLIENTS
+        </span>
+
+        <span className="w-10 sm:w-16 h-[2px] bg-[#D6AE45]" />
+      </div>
+
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900">
+        Trusted by Leading Companies
+      </h2>
+
+      <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg text-slate-600 leading-7 sm:leading-8">
+        We proudly partner with organizations across industries,
+        delivering reliable manpower, security, housekeeping and
+        business support services.
+      </p>
+
+    </div>
+
+    {/* ================= FIRST ROW ================= */}
+
+    <Swiper
+      modules={[Autoplay]}
+      loop
+      speed={3500}
+      autoplay={{
+        delay: 0,
+        disableOnInteraction: false,
+        reverseDirection: false,
+      }}
+      allowTouchMove={false}
+      spaceBetween={16}
+      breakpoints={{
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 12,
+        },
+        480: {
+          slidesPerView: 2.5,
+          spaceBetween: 14,
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 18,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      }}
+      className="mt-10 mb-6"
+    >
+      {[
+        "/Client1.png",
+        "/client2.png",
+        "/client3.png",
+        "/client4.png",
+        "/client5.png",
+        "/client6.png",
+        "/client7.png",
+      ].map((logo, index) => (
+        <SwiperSlide key={index}>
+          <div className="mx-auto flex h-[100px] sm:h-[120px] lg:h-[140px] w-full max-w-[170px] sm:max-w-[190px] lg:max-w-[220px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 lg:p-6 shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
+
+            <img
+              src={logo}
+              alt={`Client ${index + 1}`}
+              className="max-h-[60px] sm:max-h-[80px] lg:max-h-[110px] max-w-full object-contain transition-transform duration-500 hover:scale-110"
+            />
+
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+
+    {/* ================= SECOND ROW ================= */}
+
+    <Swiper
+      modules={[Autoplay]}
+      loop
+      speed={3500}
+      autoplay={{
+        delay: 0,
+        disableOnInteraction: false,
+        reverseDirection: true,
+      }}
+      allowTouchMove={false}
+      spaceBetween={16}
+      breakpoints={{
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 12,
+        },
+        480: {
+          slidesPerView: 2.5,
+          spaceBetween: 14,
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 18,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      }}
+    >
+      {[
+        "/client8.png",
+        "/client9.png",
+        "/client10.png",
+        "/client11.png",
+        "/client12.png",
+        "/client13.png",
+        "/client14.png",
+      ].map((logo, index) => (
+        <SwiperSlide key={index}>
+          <div className="mx-auto flex h-[100px] sm:h-[120px] lg:h-[140px] w-full max-w-[170px] sm:max-w-[190px] lg:max-w-[220px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 lg:p-6 shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
+
+            <img
+              src={logo}
+              alt={`Client ${index + 8}`}
+              className="max-h-[60px] sm:max-h-[80px] lg:max-h-[110px] max-w-full object-contain transition-transform duration-500 hover:scale-110"
+            />
+
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+
+  </div>
+</section>
+
+
 {/* VISION AND MISSION */}
 
       <section className="py-16 sm:py-20 lg:py-24 bg-white">
@@ -1748,15 +1900,11 @@ export default function Home() {
         </h3>
 
         <p className="text-gray-600 text-sm sm:text-base leading-7 sm:leading-8 text-justify">
-          To be India's most trusted and preferred partner for integrated
-          manpower, security, housekeeping, and facility management
-          solutions. We aim to empower organizations through innovative,
-          scalable, and sustainable services while building safer
-          workplaces, stronger communities, and lasting business
-          relationships. By consistently delivering excellence,
-          reliability, and value, we aspire to become the first choice for
-          businesses seeking dependable workforce and operational support
-          across the nation.
+          To be India's most trusted partner for integrated facility management and workforce solutions, 
+          delivering excellence through security services, housekeeping, hospitality, manpower outsourcing, 
+          transportation, and business support. We aspire to build long-term client relationships by providing 
+          reliable, innovative, and sustainable solutions that enhance operational efficiency, create safer workplaces, 
+          and contribute to the growth of businesses across India.
         </p>
 
       </div>
@@ -1773,15 +1921,12 @@ export default function Home() {
         </h3>
 
         <p className="text-gray-600 text-sm sm:text-base leading-7 sm:leading-8 text-justify">
-          Our mission is to provide reliable, customized, and high-quality
-          manpower and facility management solutions that help businesses
-          achieve operational excellence. We are committed to maintaining
-          the highest standards of safety, professionalism, and customer
-          satisfaction through continuous training, innovation, and
-          ethical practices. By building transparent, long-term
-          partnerships and delivering skilled workforce solutions, we
-          create lasting value for our clients, employees, and the
-          communities we serve.
+          Our mission is to deliver reliable, customized, and high-quality integrated facility 
+          management and workforce solutions that enable businesses to focus on their core operations. 
+          Through skilled professionals, strong statutory compliance, continuous training, operational 
+          excellence, and a customer-first approach, we are committed to providing security services, 
+          housekeeping, guest house management, transportation, catering, manpower outsourcing, and business 
+          support services with the highest standards of quality, safety, and professionalism.
         </p>
 
       </div>
@@ -2335,159 +2480,6 @@ export default function Home() {
           </form>
         </div>
 
-        {/* ===================== OUR CLIENTS ===================== */}
-
-<section
-  id="clients"
-  className="py-16 sm:py-20 lg:py-24 overflow-hidden bg-[#F5FAFA]"
->
-  <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-    {/* Heading */}
-    <div className="text-center mb-12 lg:mb-16">
-
-      <div className="flex items-center justify-center gap-3 sm:gap-4 mb-5">
-        <span className="w-10 sm:w-16 h-[2px] bg-[#D6AE45]" />
-
-        <span className="uppercase tracking-[3px] sm:tracking-[5px] text-[#D6AE45] text-xs sm:text-sm font-semibold">
-          OUR CLIENTS
-        </span>
-
-        <span className="w-10 sm:w-16 h-[2px] bg-[#D6AE45]" />
-      </div>
-
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900">
-        Trusted by Leading Companies
-      </h2>
-
-      <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg text-slate-600 leading-7 sm:leading-8">
-        We proudly partner with organizations across industries,
-        delivering reliable manpower, security, housekeeping and
-        business support services.
-      </p>
-
-    </div>
-
-    {/* ================= FIRST ROW ================= */}
-
-    <Swiper
-      modules={[Autoplay]}
-      loop
-      speed={3500}
-      autoplay={{
-        delay: 0,
-        disableOnInteraction: false,
-        reverseDirection: false,
-      }}
-      allowTouchMove={false}
-      spaceBetween={16}
-      breakpoints={{
-        0: {
-          slidesPerView: 2,
-          spaceBetween: 12,
-        },
-        480: {
-          slidesPerView: 2.5,
-          spaceBetween: 14,
-        },
-        640: {
-          slidesPerView: 3,
-          spaceBetween: 16,
-        },
-        768: {
-          slidesPerView: 4,
-          spaceBetween: 18,
-        },
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 20,
-        },
-      }}
-      className="mt-10 mb-6"
-    >
-      {[
-        "/Client1.png",
-        "/client2.png",
-        "/client3.png",
-        "/client4.png",
-        "/client5.png",
-        "/client6.png",
-        "/client7.png",
-      ].map((logo, index) => (
-        <SwiperSlide key={index}>
-          <div className="mx-auto flex h-[100px] sm:h-[120px] lg:h-[140px] w-full max-w-[170px] sm:max-w-[190px] lg:max-w-[220px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 lg:p-6 shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-
-            <img
-              src={logo}
-              alt={`Client ${index + 1}`}
-              className="max-h-[60px] sm:max-h-[80px] lg:max-h-[110px] max-w-full object-contain transition-transform duration-500 hover:scale-110"
-            />
-
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-
-    {/* ================= SECOND ROW ================= */}
-
-    <Swiper
-      modules={[Autoplay]}
-      loop
-      speed={3500}
-      autoplay={{
-        delay: 0,
-        disableOnInteraction: false,
-        reverseDirection: true,
-      }}
-      allowTouchMove={false}
-      spaceBetween={16}
-      breakpoints={{
-        0: {
-          slidesPerView: 2,
-          spaceBetween: 12,
-        },
-        480: {
-          slidesPerView: 2.5,
-          spaceBetween: 14,
-        },
-        640: {
-          slidesPerView: 3,
-          spaceBetween: 16,
-        },
-        768: {
-          slidesPerView: 4,
-          spaceBetween: 18,
-        },
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 20,
-        },
-      }}
-    >
-      {[
-        "/client8.png",
-        "/client9.png",
-        "/client10.png",
-        "/client11.png",
-        "/client12.png",
-        "/client13.png",
-        "/client14.png",
-      ].map((logo, index) => (
-        <SwiperSlide key={index}>
-          <div className="mx-auto flex h-[100px] sm:h-[120px] lg:h-[140px] w-full max-w-[170px] sm:max-w-[190px] lg:max-w-[220px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 lg:p-6 shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-
-            <img
-              src={logo}
-              alt={`Client ${index + 8}`}
-              className="max-h-[60px] sm:max-h-[80px] lg:max-h-[110px] max-w-full object-contain transition-transform duration-500 hover:scale-110"
-            />
-
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-
-  </div>
-</section>
       </section>
 
 {/* ================= FOOTER ================= */}
@@ -2623,24 +2615,27 @@ export default function Home() {
         <ul className="space-y-4">
 
           {[
-            "About Us",
-            "Our Presence",
-            "Services",
-            "Testimonials",
-            "Contact Us",
+            { name: "About Us", href: "/#bout" },
+            { name: "Our Presence", href: "/#presence" },
+            { name: "Services", href: "/#services" },
+            { name: "Testimonials", href: "/#testimonials" },
+            { name: "Contact Us", href: "/#contact" },
           ].map((item) => (
 
             <li
-              key={item}
+              key={item.name}
               className="group flex items-center gap-3 text-slate-300 hover:text-[#D6AE45] cursor-pointer transition-all duration-300"
+              
             >
+
+
 
               <ArrowUpRight
                 size={18}
                 className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
               />
 
-              {item}
+              {item.name}
 
             </li>
 
@@ -2663,12 +2658,12 @@ export default function Home() {
         <ul className="space-y-4">
 
           {[
-            "Human Resource Management",
-            "Industrial Relations",
             "Security Services",
             "Housekeeping Services",
-            "Operations Management",
-            "Business Support",
+            "Integrated Facility Management",
+            "Hospitality Services",
+            "Project Vechicle Services",
+            "Smart Technology Solutions",
           ].map((item) => (
 
             <li
@@ -2679,6 +2674,7 @@ export default function Home() {
               <ArrowUpRight
                 size={18}
                 className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
+                
               />
 
               <span className="leading-7">

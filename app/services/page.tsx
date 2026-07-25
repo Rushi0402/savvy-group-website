@@ -13,6 +13,9 @@ import {
   Bus,
   MonitorSmartphone,
 } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { info } from "console";
 
 export default function ServicesPage() {
   const { openContact } = useContact();
@@ -868,18 +871,14 @@ export default function ServicesPage() {
         viewport={{ once:true }}
         className="text-5xl md:text-6xl font-black mt-6 text-slate-900"
       >
-        Transportation
-        Support Services
+        Project Vechicle Services
       </motion.h2>
 
       <p className="mt-8 text-lg leading-9 text-slate-600">
 
-        Savvy Group provides reliable transportation
-        support for industrial projects,
-        renewable energy sites,
-        infrastructure companies
-        and corporate operations
-        through our trusted transport partners.
+        Savvy Group provides reliable project vehicle solutions for solar, wind, 
+        infrastructure, and industrial projects. Through a single point of contact, 
+        we manage complete vehicle deployment and coordination, simplifying transportation for our clients.
 
       </p>
 
@@ -893,26 +892,32 @@ export default function ServicesPage() {
         {
           no:"01",
           title:"Vehicle Deployment",
+          info:"Reliable project vehicle deployment tailored to site-specific operational requirements."
         },
         {
           no:"02",
-          title:"Driver Coordination",
+          title:"single Point of Contact",
+          info:"A single point of contact for managing all project vehicle-related communications and logistics."
         },
         {
           no:"03",
-          title:"Staff Transportation",
+          title:"Project Site Mobility",
+          info:"Seamless mobility solutions for project sites, ensuring efficient transportation of personnel and equipment."
         },
         {
           no:"04",
-          title:"Executive Mobility",
+          title:"Vendor Coordination",
+          info:"Coordination with multiple vehicle vendors to ensure timely availability and maintenance of vehicles."
         },
         {
           no:"05",
-          title:"Vendor Management",
+          title:"Flexible Vehicle Solutions",
+          info:"Customized vehicle solutions to meet the unique needs of each project."
         },
         {
           no:"06",
-          title:"Project Support",
+          title:"PAN India Support",
+          info:"Comprehensive support services across all regions of India."
         },
 
       ].map((item)=>(
@@ -943,10 +948,7 @@ export default function ServicesPage() {
 
           <p className="mt-4 text-slate-600">
 
-            Professional transportation
-            planning and deployment
-            customized for client
-            requirements.
+            {item.info}
 
           </p>
 
@@ -973,14 +975,14 @@ export default function ServicesPage() {
         <div className="space-y-5 mt-10">
 
           {[
-            "Project Site Mobility",
-            "Executive Transportation",
-            "Driver Arrangement",
-            "Vehicle Deployment",
-            "Remote Project Support",
+            "Scope Of Services",
+            "project Vehicle Deployment",
+            "Site Mobility Solutions",
+            "Single Point of Contact",
             "Vendor Coordination",
-            "Billing Administration",
-            "Customized Mobility Solutions",
+            "Monthly Vechicle Hiring",
+            "PAN India project Support",
+            "Customized Vehicle Solutions",
           ].map((item)=>(
 
             <div
@@ -1029,10 +1031,10 @@ export default function ServicesPage() {
       <div className="grid md:grid-cols-4 gap-8 text-center">
 
         {[
-          "Reliable Vendors",
-          "Quick Deployment",
+          "Single Point of Contact",
+          "Reliable Vehicle Deployment",
           "PAN India Support",
-          "24×7 Coordination",
+          "Simplified Billing & Invoicing",
         ].map((item)=>(
 
           <div key={item}>
@@ -1069,7 +1071,7 @@ export default function ServicesPage() {
 
       >
 
-        Request Transportation Solution
+        Request Vehicle Solution
 
       </button>
 
@@ -1391,7 +1393,7 @@ export default function ServicesPage() {
         viewport={{ once: true }}
         className="text-5xl md:text-6xl font-black mt-6"
       >
-        IT Solutions
+        Technology Services
       </motion.h2>
 
       <p className="mt-8 text-lg leading-9 text-slate-300">
@@ -1587,10 +1589,164 @@ export default function ServicesPage() {
         onClick={openContact}
         className="bg-[#D6AE45] hover:bg-[#c79d33] text-black px-10 py-5 rounded-xl font-bold text-lg transition shadow-xl"
       >
-        Request IT Solution
+        Request Technology Support
       </button>
 
     </div>
+
+  </div>
+</section>
+
+      {/* ===================== OUR CLIENTS ===================== */}
+
+<section
+  id="clients"
+  className="py-16 sm:py-20 lg:py-24 overflow-hidden bg-[#F5FAFA]"
+>
+  <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    {/* Heading */}
+    <div className="text-center mb-12 lg:mb-16">
+
+      <div className="flex items-center justify-center gap-3 sm:gap-4 mb-5">
+        <span className="w-10 sm:w-16 h-[2px] bg-[#D6AE45]" />
+
+        <span className="uppercase tracking-[3px] sm:tracking-[5px] text-[#D6AE45] text-xs sm:text-sm font-semibold">
+          OUR CLIENTS
+        </span>
+
+        <span className="w-10 sm:w-16 h-[2px] bg-[#D6AE45]" />
+      </div>
+
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900">
+        Trusted by Leading Companies
+      </h2>
+
+      <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg text-slate-600 leading-7 sm:leading-8">
+        We proudly partner with organizations across industries,
+        delivering reliable manpower, security, housekeeping and
+        business support services.
+      </p>
+
+    </div>
+
+    {/* ================= FIRST ROW ================= */}
+
+    <Swiper
+      modules={[Autoplay]}
+      loop
+      speed={3500}
+      autoplay={{
+        delay: 0,
+        disableOnInteraction: false,
+        reverseDirection: false,
+      }}
+      allowTouchMove={false}
+      spaceBetween={16}
+      breakpoints={{
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 12,
+        },
+        480: {
+          slidesPerView: 2.5,
+          spaceBetween: 14,
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 18,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      }}
+      className="mt-10 mb-6"
+    >
+      {[
+        "/Client1.png",
+        "/client2.png",
+        "/client3.png",
+        "/client4.png",
+        "/client5.png",
+        "/client6.png",
+        "/client7.png",
+      ].map((logo, index) => (
+        <SwiperSlide key={index}>
+          <div className="mx-auto flex h-[100px] sm:h-[120px] lg:h-[140px] w-full max-w-[170px] sm:max-w-[190px] lg:max-w-[220px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 lg:p-6 shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
+
+            <img
+              src={logo}
+              alt={`Client ${index + 1}`}
+              className="max-h-[60px] sm:max-h-[80px] lg:max-h-[110px] max-w-full object-contain transition-transform duration-500 hover:scale-110"
+            />
+
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+
+    {/* ================= SECOND ROW ================= */}
+
+    <Swiper
+      modules={[Autoplay]}
+      loop
+      speed={3500}
+      autoplay={{
+        delay: 0,
+        disableOnInteraction: false,
+        reverseDirection: true,
+      }}
+      allowTouchMove={false}
+      spaceBetween={16}
+      breakpoints={{
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 12,
+        },
+        480: {
+          slidesPerView: 2.5,
+          spaceBetween: 14,
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 18,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      }}
+    >
+      {[
+        "/client8.png",
+        "/client9.png",
+        "/client10.png",
+        "/client11.png",
+        "/client12.png",
+        "/client13.png",
+        "/client14.png",
+      ].map((logo, index) => (
+        <SwiperSlide key={index}>
+          <div className="mx-auto flex h-[100px] sm:h-[120px] lg:h-[140px] w-full max-w-[170px] sm:max-w-[190px] lg:max-w-[220px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 lg:p-6 shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
+
+            <img
+              src={logo}
+              alt={`Client ${index + 8}`}
+              className="max-h-[60px] sm:max-h-[80px] lg:max-h-[110px] max-w-full object-contain transition-transform duration-500 hover:scale-110"
+            />
+
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
 
   </div>
 </section>

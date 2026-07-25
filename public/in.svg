@@ -25,7 +25,6 @@
     
     <style>
 #INMH,
-#INUP,
 #INRJ,
 #INAP,
 #INTG,
@@ -39,7 +38,6 @@
 }
 
 #INMH:hover,
-#INUP:hover,
 #INRJ:hover,
 #INAP:hover,
 #INTG:hover,
@@ -277,18 +275,6 @@ path {
   </circle>
   <circle class="Uttar Pradesh" cx="438.7" cy="375.5" id="INUP">
   </circle>
-  <text
-    x="438.7"
-    y="370"
-    text-anchor="middle"
-    font-family="Poppins, Montserrat, Arial, sans-serif"
-    font-size="13"
-    font-weight="400"
-    letter-spacing="1"
-    fill="#ffffff">
-    <tspan x="442.7" y="370">UTTAR</tspan>
-    <tspan x="442.7" y="388">PRADESH</tspan>
-</text>
   <circle class="Uttaranchal" cx="401.4" cy="272.1" id="INUT">
   </circle>
   <circle class="West Bengal" cx="637.1" cy="485.8" id="INWB">
