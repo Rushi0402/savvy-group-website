@@ -239,44 +239,44 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!email) {
-      toast.error("Please enter your email.");
-      return;
-    }
+  if (!email.trim()) {
+    toast.error("Please enter your email.");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    console.log(process.env.NEXT_PUBLIC_API_URL);
+  try {
+    const data = await subscribeNewsletter(email);
 
-    try {
-      const data = await subscribeNewsletter(email);
+    toast.success(data.message, {
+      icon: "📧",
+      style: {
+        border: "1px solid #D6AE45",
+        padding: "16px",
+        color: "#0f172a",
+      },
+    });
 
-      if (data.success) {
-        toast.success(data.message, {
-          icon: "📧",
-          style: {
-            border: "1px solid #D6AE45",
-            padding: "16px",
-            color: "#0f172a",
-          },
-        });
+    setEmail("");
 
-        setEmail("");
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      console.error(error);
+  } catch (error) {
+    console.error(error);
 
+    if (error instanceof Error) {
+      toast.error(error.message, {
+        icon: "⚠️",
+      });
+    } else {
       toast.error("Unable to subscribe. Please try again.");
-    } finally {
-      setLoading(false);
     }
 
+  } finally {
     setLoading(false);
-  };
+  }
+};
 
   // PASTE ABOVE RETURN ↑↑↑
 
