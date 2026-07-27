@@ -281,7 +281,7 @@ export default function Home() {
   // PASTE ABOVE RETURN ↑↑↑
 
   return (
-    <main className="min-h-screen from-slate-50 to-green-50 pt-32 bg-white">
+    <main className="min-h-screen from-slate-50 to-green-50 pt-32 ">
       {/* ================= NAVBAR ================= */}
 
       <nav
@@ -457,6 +457,7 @@ export default function Home() {
         sm:px-6
         lg:px-8
         pb-12
+        bg-white
         "
       >
         <Swiper
