@@ -281,7 +281,7 @@ export default function Home() {
   // PASTE ABOVE RETURN ↑↑↑
 
   return (
-    <main className="min-h-screen from-slate-50 to-green-50 pt-32">
+    <main className="min-h-screen from-slate-50 to-green-50 pt-32 bg-white">
       {/* ================= NAVBAR ================= */}
 
       <nav
@@ -456,7 +456,8 @@ export default function Home() {
         px-5
         sm:px-6
         lg:px-8
-        pb-12"
+        pb-12
+        "
       >
         <Swiper
           modules={[Autoplay]}

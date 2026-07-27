@@ -1,5 +1,5 @@
 const prisma = require("../config/prisma");
-const transporter = require("../config/mail");
+const { transporter } = require("../config/mail");
 
 exports.test = async (req, res) => {
   res.json({
@@ -10,16 +10,22 @@ exports.test = async (req, res) => {
 
 exports.createContact = async (req, res) => {
   try {
+    console.log("========== CONTACT REQUEST ==========");
+    console.log(req.body);
+
     const { firstName, lastName, phone, email, message } = req.body;
 
     if (!firstName || !lastName || !phone || !email || !message) {
+      console.log("❌ Validation Failed");
+
       return res.status(400).json({
         success: false,
         message: "All fields are required",
       });
     }
 
-    // Save to Database
+    console.log("✅ Validation Passed");
+
     const contact = await prisma.contact.create({
       data: {
         firstName,
@@ -30,15 +36,20 @@ exports.createContact = async (req, res) => {
       },
     });
 
-    // ===========================
-    // Email to Company
-    // ===========================
+    console.log("✅ Saved to Database");
 
-    await transporter.sendMail({
+    console.log("🔄 Verifying SMTP...");
+
+    await transporter.verify();
+
+    console.log("✅ SMTP Verified");
+
+    console.log("📧 Sending Company Email...");
+
+    const companyInfo = await transporter.sendMail({
       from: `"Savvy Group Website" <${process.env.EMAIL_USER}>`,
       to: process.env.COMPANY_EMAIL,
       subject: "📩 New Contact Form Submission",
-
       html: `
         <h2>New Contact Inquiry</h2>
 
@@ -46,7 +57,7 @@ exports.createContact = async (req, res) => {
         <p><b>Phone:</b> ${phone}</p>
         <p><b>Email:</b> ${email}</p>
 
-        <hr/>
+        <hr>
 
         <p><b>Message:</b></p>
 
@@ -54,39 +65,35 @@ exports.createContact = async (req, res) => {
       `,
     });
 
-    // ===========================
-    // Thank You Email
-    // ===========================
+    console.log("✅ Company Email Sent");
+    console.log(companyInfo.response);
 
-    await transporter.sendMail({
+    console.log("📧 Sending Customer Email...");
+
+    const customerInfo = await transporter.sendMail({
       from: `"Savvy Group" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Thank You for Contacting Savvy Group",
-
       html: `
         <h2>Hello ${firstName},</h2>
 
-        <p>
-        Thank you for contacting <b>Savvy Group</b>.
-        </p>
+        <p>Thank you for contacting <b>Savvy Group</b>.</p>
+
+        <p>We have received your enquiry successfully.</p>
+
+        <p>Our team will contact you shortly.</p>
+
+        <br>
 
         <p>
-        We have received your inquiry successfully.
-        </p>
-
-        <p>
-        Our team will contact you shortly.
-        </p>
-
-        <br/>
-
-        <p>
-        Regards,<br/>
-        <b>Savvy Group</b><br/>
-        Human Resource | Security | Facility Management
+          Regards,<br>
+          <b>Savvy Group</b>
         </p>
       `,
     });
+
+    console.log("✅ Customer Email Sent");
+    console.log(customerInfo.response);
 
     return res.status(201).json({
       success: true,
@@ -95,13 +102,12 @@ exports.createContact = async (req, res) => {
     });
 
   } catch (error) {
-
+    console.error("❌ CONTACT CONTROLLER ERROR");
     console.error(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
-      message: "Server Error",
+      message: error.message,
     });
-
   }
 };
