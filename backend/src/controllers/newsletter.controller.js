@@ -1,5 +1,5 @@
 const prisma = require("../config/prisma");
-const { sendMail } = require("../config/mail");
+const { transporter } = require("../config/mail");
 
 exports.subscribe = async (req, res) => {
   try {
@@ -24,61 +24,85 @@ exports.subscribe = async (req, res) => {
       });
     }
 
-    // Save to DB
+    // Save subscriber
     await prisma.subscriber.create({
       data: { email },
     });
 
-    // Welcome email
-    await sendMail({
-      to: email,
-      subject: "Welcome to Savvy Group Newsletter",
-      html: `
-        <h2>Welcome to Savvy Group</h2>
+    console.log("✅ Subscriber Saved");
 
-        <p>Thank you for subscribing to our newsletter.</p>
+    const fromAddress = `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`;
 
-        <p>
-        You will receive updates about:
-        </p>
+    // Welcome Email
+    try {
+      const welcome = await transporter.sendMail({
+        from: fromAddress,
+        to: email,
+        subject: "Welcome to Savvy Group Newsletter",
+        html: `
+          <h2>Welcome to Savvy Group</h2>
 
-        <ul>
-          <li>Recruitment</li>
-          <li>Security Services</li>
-          <li>Housekeeping</li>
-          <li>Facility Management</li>
-          <li>Career Opportunities</li>
-        </ul>
+          <p>Thank you for subscribing to our newsletter.</p>
 
-        <br>
+          <p>You will now receive updates about:</p>
 
-        <b>Regards,</b><br>
-        Savvy Group
-      `,
-    });
+          <ul>
+            <li>Recruitment</li>
+            <li>Security Services</li>
+            <li>Housekeeping</li>
+            <li>Facility Management</li>
+            <li>Career Opportunities</li>
+          </ul>
 
-    // Notify Admin
-    await sendMail({
-      to: process.env.EMAIL_USER,
-      subject: "New Newsletter Subscriber",
-      html: `
-        <h3>New Subscriber</h3>
+          <br>
 
-        <p><b>Email:</b> ${email}</p>
-      `,
-    });
+          <p>
+            Regards,<br>
+            <b>Savvy Group</b>
+          </p>
+        `,
+      });
 
-    res.status(201).json({
+      console.log("✅ Welcome Email Sent");
+      console.log(welcome.response);
+
+    } catch (err) {
+      console.error("❌ Welcome Email Failed");
+      console.error(err.message);
+    }
+
+    // Admin Notification
+    try {
+      const admin = await transporter.sendMail({
+        from: fromAddress,
+        to: process.env.COMPANY_EMAIL,
+        subject: "New Newsletter Subscriber",
+        html: `
+          <h3>New Newsletter Subscriber</h3>
+
+          <p><b>Email:</b> ${email}</p>
+        `,
+      });
+
+      console.log("✅ Admin Email Sent");
+      console.log(admin.response);
+
+    } catch (err) {
+      console.error("❌ Admin Email Failed");
+      console.error(err.message);
+    }
+
+    return res.status(201).json({
       success: true,
       message: "Subscribed Successfully",
     });
 
   } catch (error) {
-    console.log(error);
+    console.error(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
-      message: "Server Error",
+      message: error.message,
     });
   }
 };
