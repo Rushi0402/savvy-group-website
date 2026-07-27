@@ -28,6 +28,7 @@
 #INRJ,
 #INAP,
 #INTG,
+#INKA,
 #INTN,
 #INMP{
     cursor:pointer;
@@ -42,6 +43,7 @@
 #INAP:hover,
 #INTG:hover,
 #INTN:hover,
+#INKA:hover,
 #INMP:hover{
     fill:#ff9800;
     stroke:#ffd700;
@@ -200,6 +202,17 @@ path {
   </circle>
   <circle class="Karnataka" cx="302.1" cy="728.1" id="INKA">
   </circle>
+    <text
+    x="302.1"
+    y="728.1"
+    text-anchor="middle"
+    font-family="Poppins, Montserrat, Arial, sans-serif"
+    font-size="10"
+    font-weight="400"
+    letter-spacing="1"
+    fill="#ffffff">
+    KARNATAKA
+</text>
   <circle class="Kerala" cx="325.5" cy="848.9" id="INKL">
   </circle>
   <circle class="Madhya Pradesh" cx="378.4" cy="494.2" id="INMP">
