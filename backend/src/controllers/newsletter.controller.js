@@ -8,17 +8,17 @@ exports.subscribe = async (req, res) => {
     if (!email) {
       return res.status(400).json({
         success: false,
-        message: "Email is required",
+        message: "Email is required.",
       });
     }
 
-    // Check duplicate
+    // Check duplicate subscriber
     const existing = await prisma.subscriber.findUnique({
       where: { email },
     });
 
     if (existing) {
-      return res.status(400).json({
+      return res.status(409).json({
         success: false,
         message: "You are already subscribed.",
       });
@@ -33,7 +33,7 @@ exports.subscribe = async (req, res) => {
 
     const fromAddress = `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`;
 
-    // Welcome Email
+    // Send welcome email (don't fail subscription if email fails)
     try {
       const welcome = await transporter.sendMail({
         from: fromAddress,
@@ -71,7 +71,7 @@ exports.subscribe = async (req, res) => {
       console.error(err.message);
     }
 
-    // Admin Notification
+    // Notify company
     try {
       const admin = await transporter.sendMail({
         from: fromAddress,
@@ -94,15 +94,16 @@ exports.subscribe = async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      message: "Subscribed Successfully",
+      message: "Subscribed Successfully.",
     });
 
   } catch (error) {
+    console.error("❌ Newsletter Error");
     console.error(error);
 
     return res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Internal Server Error",
     });
   }
 };
