@@ -47,7 +47,7 @@ exports.createContact = async (req, res) => {
     console.log("📧 Sending Company Email...");
 
     const companyInfo = await transporter.sendMail({
-      from: `"Savvy Group Website" <${process.env.EMAIL_USER}>`,
+      from: `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`,
       to: process.env.COMPANY_EMAIL,
       subject: "📩 New Contact Form Submission",
       html: `
@@ -71,7 +71,7 @@ exports.createContact = async (req, res) => {
     console.log("📧 Sending Customer Email...");
 
     const customerInfo = await transporter.sendMail({
-      from: `"Savvy Group" <${process.env.EMAIL_USER}>`,
+      from: `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`,
       to: email,
       subject: "Thank You for Contacting Savvy Group",
       html: `
