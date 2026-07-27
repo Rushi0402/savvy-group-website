@@ -16,8 +16,6 @@ exports.createContact = async (req, res) => {
     const { firstName, lastName, phone, email, message } = req.body;
 
     if (!firstName || !lastName || !phone || !email || !message) {
-      console.log("❌ Validation Failed");
-
       return res.status(400).json({
         success: false,
         message: "All fields are required",
@@ -38,17 +36,27 @@ exports.createContact = async (req, res) => {
 
     console.log("✅ Saved to Database");
 
-    console.log("🔄 Verifying SMTP...");
+    console.log("EMAIL_HOST:", process.env.EMAIL_HOST);
+    console.log("SMTP USER:", process.env.EMAIL_USER);
+    console.log("SENDER NAME:", process.env.SENDER_NAME);
+    console.log("SENDER EMAIL:", process.env.SENDER_EMAIL);
+
+    if (!process.env.SENDER_EMAIL) {
+      throw new Error("SENDER_EMAIL is missing from environment variables.");
+    }
+
+    const fromAddress = `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`;
+
+    console.log("FROM:", fromAddress);
 
     await transporter.verify();
-
     console.log("✅ SMTP Verified");
 
-    console.log("📧 Sending Company Email...");
-
+    // Company Email
     const companyInfo = await transporter.sendMail({
-      from: `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`,
+      from: fromAddress,
       to: process.env.COMPANY_EMAIL,
+      replyTo: email,
       subject: "📩 New Contact Form Submission",
       html: `
         <h2>New Contact Inquiry</h2>
@@ -68,10 +76,9 @@ exports.createContact = async (req, res) => {
     console.log("✅ Company Email Sent");
     console.log(companyInfo.response);
 
-    console.log("📧 Sending Customer Email...");
-
+    // Customer Email
     const customerInfo = await transporter.sendMail({
-      from: `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`,
+      from: fromAddress,
       to: email,
       subject: "Thank You for Contacting Savvy Group",
       html: `
@@ -100,7 +107,6 @@ exports.createContact = async (req, res) => {
       message: "Message submitted successfully.",
       data: contact,
     });
-
   } catch (error) {
     console.error("❌ CONTACT CONTROLLER ERROR");
     console.error(error);
