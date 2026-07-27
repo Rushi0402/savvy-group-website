@@ -86,10 +86,10 @@ export default function Home() {
       icon: Building2,
     },
     {
-      title: "Trasportation Support Services",
+      title: "Transportation Support Services",
       subtitle: "Project Mobility",
       description:
-        "Delivering dependable support solutions for business growth.",
+        "Providing dependable transportation solutions that support business growth.",
       image:"/transportation.png",
       icon: BikeIcon,
     },
@@ -97,7 +97,7 @@ export default function Home() {
       title: "Smart Technology Solutions",
       subtitle: "IT Solutions",
       description:
-        "Delivering dependable support solutions for business growth.",
+        "Providing advanced CCTV, surveillance, and smart technology solutions for modern businesses.",
       image:"/cctv.png",
       icon: Briefcase,
     },
@@ -105,7 +105,7 @@ export default function Home() {
       title: "Manpower Services",
       subtitle: "Professional Workforce Solutions",
       description:
-        "Delivering dependable support solutions for business growth.",
+        "Providing dependable manpower solutions that support business growth.",
       image:"/manpower.png",
       icon: Briefcase,
     },
@@ -306,7 +306,7 @@ export default function Home() {
                   Savvy Group
                 </h1>
 
-                <p className="hidden sm:block text-[10px] lg:text-xs tracking-wide text-slate-500">
+                <p className=" sm:block text-[10px] lg:text-xs tracking-wide text-slate-500">
                   Think Beyond Your Boundaries
                 </p>
               </div>
@@ -519,9 +519,7 @@ export default function Home() {
               lg:text-xl
             "
                 >
-                  We do not just provide solutions. We create opportunities,
-                  drive innovation and deliver results that help businesses
-                  grow.
+                  We don't just provide solutions—we create opportunities, drive innovation, and deliver results that help businesses grow.
                 </p>
 
                 <div
@@ -678,8 +676,7 @@ export default function Home() {
       </h1>
 
       <p className="mt-6 text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 leading-8">
-        Transforming concepts into successful outcomes through expertise,
-        strategy and commitment.
+        Transforming ideas into successful outcomes through expertise, strategy, and commitment.
       </p>
 
       <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-8">
@@ -774,8 +771,7 @@ export default function Home() {
       </h1>
 
       <p className="mt-6 text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 leading-8">
-        Bringing innovation, technology and business solutions together under
-        one roof.
+        Bringing innovation, technology, and business solutions together under one roof.
       </p>
 
       <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-8">
@@ -893,7 +889,7 @@ export default function Home() {
           Since 2014, Savvy Group has been delivering comprehensive workforce and facility 
           management solutions to leading organizations across India. With expertise spanning 
           security services, housekeeping, manpower, guest house management, catering, transportation, 
-          and integrated facility management, we help businesses streamline operations with reliability 
+          and integrated facility management, we help organizations streamline their operations with reliability 
           and professionalism. Backed by experienced teams, strong compliance practices, and a client-first 
           approach, we provide customized solutions that enhance productivity, reduce operational challenges, 
           and support sustainable business growth.
@@ -944,9 +940,7 @@ export default function Home() {
             </h3>
 
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              Experienced professionals with deep knowledge of Human
-              Resources, Industrial Relations and Operations Management
-              across multiple industries.
+              Experienced professionals with deep expertise in Human Resources, Industrial Relations, and Operations Management across multiple industries.
             </p>
 
           </div>
@@ -969,9 +963,7 @@ export default function Home() {
             </h3>
 
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              Delivering dependable manpower, security services,
-              housekeeping and business support solutions tailored to
-              client requirements.
+              Delivering dependable manpower, security, housekeeping, and business support solutions tailored to our clients' requirements.
             </p>
 
           </div>
@@ -1469,7 +1461,7 @@ export default function Home() {
             </p>
 
             <p className="text-slate-500 mt-3 text-sm">
-              Maharashtra, Gujarat & Uttar Pradesh
+              Maharashtra, Gujarat, Uttar Pradesh, Rajasthan, Madhya Pradesh, Karnataka, Tamil Nadu
             </p>
 
           </div>
@@ -2664,7 +2656,7 @@ export default function Home() {
             "Housekeeping Services",
             "Integrated Facility Management",
             "Hospitality Services",
-            "Project Vechicle Services",
+            "Project Vehicle Services",
             "Smart Technology Solutions",
           ].map((item) => (
 
