@@ -281,7 +281,7 @@ export default function Home() {
   // PASTE ABOVE RETURN ↑↑↑
 
   return (
-    <main className="min-h-screen from-slate-50 to-green-50 pt-32 ">
+    <main className="min-h-screen from-slate-50 to-green-50 pt-32 bg-white ">
       {/* ================= NAVBAR ================= */}
 
       <nav
