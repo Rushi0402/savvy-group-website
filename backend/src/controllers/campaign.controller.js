@@ -1,5 +1,5 @@
 const prisma = require("../config/prisma");
-const { sendMail } = require("../config/mail");
+const { transporter } = require("../config/mail");
 
 exports.createCampaign = async (req, res) => {
   try {
@@ -79,7 +79,7 @@ exports.getCampaigns = async (req, res) => {
   }
 };
 
-exports.deleteCampaign = async (req, res, next) => {
+exports.deleteCampaign = async (req, res) => {
   try {
     await prisma.campaign.delete({
       where: {
@@ -89,17 +89,22 @@ exports.deleteCampaign = async (req, res, next) => {
 
     res.json({
       success: true,
+      message: "Campaign deleted successfully.",
     });
   } catch (error) {
-    next(error);
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Unable to delete campaign.",
+    });
   }
 };
 
-exports.sendCampaign = async (req, res, next) => {
+exports.sendCampaign = async (req, res) => {
   try {
     const id = Number(req.params.id);
 
-    // Find campaign
     const campaign = await prisma.campaign.findUnique({
       where: { id },
     });
@@ -111,37 +116,43 @@ exports.sendCampaign = async (req, res, next) => {
       });
     }
 
-    // Get active subscribers
+    if (campaign.status === "sent") {
+      return res.status(400).json({
+        success: false,
+        message: "Campaign has already been sent.",
+      });
+    }
+
     const subscribers = await prisma.subscriber.findMany({
       where: {
         isSubscribed: true,
       },
     });
 
-    if (subscribers.length === 0) {
+    if (!subscribers.length) {
       return res.status(400).json({
         success: false,
         message: "No active subscribers found.",
       });
     }
 
-    // Send email to each subscriber
     for (const subscriber of subscribers) {
-      await sendMail({
+      await transporter.sendMail({
+        from: `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`,
         to: subscriber.email,
         subject: campaign.subject,
         html: `
-          <div style="font-family:Arial,sans-serif;max-width:700px;margin:auto;padding:30px;border:1px solid #ddd;border-radius:10px">
+          <div style="max-width:700px;margin:auto;padding:30px;font-family:Arial,sans-serif;border:1px solid #e5e5e5;border-radius:10px">
 
-            <h1 style="color:#0b7466">
+            <h1 style="margin:0;color:#0b7466">
               Savvy Group
             </h1>
 
-            <p style="color:#666">
+            <p style="margin-top:5px;color:#666">
               Resources & Management
             </p>
 
-            <hr>
+            <hr style="margin:25px 0">
 
             <h2>${campaign.title}</h2>
 
@@ -149,11 +160,11 @@ exports.sendCampaign = async (req, res, next) => {
               ${campaign.previewText}
             </p>
 
-            <div style="margin-top:25px;font-size:16px;line-height:1.8">
+            <div style="margin-top:25px;font-size:16px;line-height:1.8;color:#333">
               ${campaign.content.replace(/\n/g, "<br>")}
             </div>
 
-            <hr style="margin-top:40px">
+            <hr style="margin:35px 0">
 
             <p>
               Regards,<br>
@@ -165,9 +176,10 @@ exports.sendCampaign = async (req, res, next) => {
       });
     }
 
-    // Update campaign
     const updatedCampaign = await prisma.campaign.update({
-      where: { id },
+      where: {
+        id,
+      },
       data: {
         status: "sent",
         sentAt: new Date(),
@@ -177,11 +189,16 @@ exports.sendCampaign = async (req, res, next) => {
 
     return res.json({
       success: true,
-      message: `Campaign sent to ${subscribers.length} subscribers.`,
+      message: `Campaign sent successfully to ${subscribers.length} subscriber(s).`,
       data: updatedCampaign,
     });
   } catch (error) {
+    console.error("Campaign Send Error");
     console.error(error);
-    return next(error);
+
+    return res.status(500).json({
+      success: false,
+      message: error.message || "Unable to send campaign.",
+    });
   }
 };
