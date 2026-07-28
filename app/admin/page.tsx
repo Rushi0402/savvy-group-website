@@ -263,8 +263,6 @@ const [campaignForm, setCampaignForm] = useState<CampaignForm>({
     }
   };
 
-
-
   const updateCampaignForm = (
     field: keyof typeof campaignForm,
     value: string,
@@ -758,7 +756,7 @@ const [campaignForm, setCampaignForm] = useState<CampaignForm>({
             form={campaignForm}
             onChange={updateCampaignForm}
             onSave={saveCampaign}
-            
+            onSend={sendCampaign}
           />
         </div>
       </section>
@@ -1282,32 +1280,9 @@ function CampaignsView({
   onDelete: (id: number) => void;
   onEdit: (campaign: Campaign) => void;
 }) {
-
-
-const sendCampaignById = async (id: number) => {
-  const confirmSend = window.confirm(
-    "Send this campaign to all active subscribers?"
-  );
-
-  if (!confirmSend) return;
-
-  try {
-    const response = await adminRequest(`/campaigns/${id}/send`, {
-      method: "POST",
-    });
-
-    if (!response.success) {
-      throw new Error(response.message);
-    }
-
-    toast.success(response.message);
-
-    await loadCampaigns();
-  } catch (error) {
-    console.error(error);
-    toast.error("Unable to send campaign.");
+  function onSend(id: number): void {
+    
   }
-};
 
   return (
     <div className="mx-auto max-w-7xl">
@@ -1420,11 +1395,9 @@ const sendCampaignById = async (id: number) => {
                     </button>
 
                     <button 
-                    onClick={() => sendCampaignById(campaign.id)}
-                    className="rounded-lg border p-2 hover:bg-slate-100"
-                    >
-                      
-                      <img src="send.svg" width="20" height="20"></img>
+                      onClick={() => onSend(campaign.id)}
+                      className="rounded-lg border p-2 hover:bg-slate-100">
+                      <object data="send.svg" width="20" height="20"></object>
                     </button>
 
                     <button
