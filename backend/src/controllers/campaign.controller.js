@@ -147,37 +147,287 @@ exports.sendCampaign = async (req, res) => {
           to: subscriber.email,
           subject: campaign.subject,
           html: `
-            <div style="max-width:700px;margin:auto;padding:30px;font-family:Arial,sans-serif;border:1px solid #e5e5e5;border-radius:12px">
+<!DOCTYPE html>
+<html>
 
-              <h1 style="margin:0;color:#0b7466">
-                Savvy Groupssssss
-              </h1>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-              <p style="margin-top:5px;color:#666">
-                Resources & Managementtttt
-              </p>
+<title>${campaign.subject}</title>
 
-              <hr style="margin:25px 0">
+</head>
 
-              <h2>${campaign.title}</h2>
+<body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;">
 
-              <p style="font-size:16px;color:#666">
-                ${campaign.previewText || ""}
-              </p>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f8;padding:40px 10px;">
 
-              <div style="margin-top:25px;font-size:16px;line-height:1.8;color:#333">
-                ${campaign.content.replace(/\n/g, "<br>")}
-              </div>
+<tr>
 
-              <hr style="margin:35px 0">
+<td align="center">
 
-              <p>
-                Regards,<br>
-                <strong>Team Savvy Group</strong>
-              </p>
+<table
+width="700"
+cellpadding="0"
+cellspacing="0"
+style="
+max-width:700px;
+background:#ffffff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+">
 
-            </div>
-          `,
+<!-- Banner -->
+
+<tr>
+
+<td>
+
+<img
+src="https://savvy-group-website.vercel.app/email-banner.jpg"
+width="700"
+style="display:block;width:100%;height:auto;"
+alt="Savvy Group"
+/>
+
+</td>
+
+</tr>
+
+<!-- Company -->
+
+<tr>
+
+<td align="center" style="padding:40px 40px 20px;">
+
+<h1
+style="
+margin:0;
+font-size:38px;
+color:#062c27;
+">
+
+Savvy Group
+
+</h1>
+
+<p
+style="
+margin-top:10px;
+font-size:18px;
+color:#777;
+">
+
+Resources & Management
+
+</p>
+
+<p
+style="
+margin-top:8px;
+font-size:16px;
+font-style:italic;
+color:#0b7466;
+">
+
+Think Beyond Your Boundaries
+
+</p>
+
+</td>
+
+</tr>
+
+<!-- Title -->
+
+<tr>
+
+<td style="padding:10px 45px;">
+
+<h2
+style="
+margin:0;
+font-size:32px;
+color:#222;
+">
+
+${campaign.title}
+
+</h2>
+
+</td>
+
+</tr>
+
+<!-- Preview -->
+
+<tr>
+
+<td style="padding:10px 45px;">
+
+<p
+style="
+font-size:18px;
+line-height:32px;
+color:#666;
+">
+
+${campaign.previewText || ""}
+
+</p>
+
+</td>
+
+</tr>
+
+<!-- Divider -->
+
+<tr>
+
+<td style="padding:0 45px;">
+
+<hr style="border:none;border-top:1px solid #ececec;">
+
+</td>
+
+</tr>
+
+<!-- Content -->
+
+<tr>
+
+<td style="padding:35px 45px;">
+
+<div
+style="
+font-size:17px;
+line-height:34px;
+color:#444;
+">
+
+${campaign.content.replace(/\n/g,"<br>")}
+
+</div>
+
+</td>
+
+</tr>
+
+<!-- Button -->
+
+<tr>
+
+<td align="center" style="padding-bottom:50px;">
+
+<a
+href="https://savvy-group-website.vercel.app"
+style="
+background:#0b7466;
+color:#ffffff;
+padding:18px 40px;
+border-radius:8px;
+font-size:17px;
+font-weight:bold;
+text-decoration:none;
+display:inline-block;
+">
+
+Visit Our Website
+
+</a>
+
+</td>
+
+</tr>
+
+<!-- Footer -->
+
+<tr>
+
+<td
+style="
+background:#062c27;
+padding:35px;
+text-align:center;
+">
+
+<p
+style="
+margin:0;
+font-size:24px;
+font-weight:bold;
+color:#D6AE45;
+">
+
+Savvy Group
+
+</p>
+
+<p
+style="
+margin:15px 0;
+color:#ffffff;
+font-size:15px;
+">
+
+Resources & Management
+
+</p>
+
+<p
+style="
+margin:20px 0;
+color:#cfcfcf;
+font-size:15px;
+">
+
+📧 ${process.env.COMPANY_EMAIL}
+
+</p>
+
+<p
+style="
+margin:0;
+color:#cfcfcf;
+font-size:15px;
+">
+
+🌐 https://savvy-group-website.vercel.app
+
+</p>
+
+<p
+style="
+margin-top:30px;
+font-size:13px;
+color:#999;
+">
+
+© ${new Date().getFullYear()} Savvy Group
+
+<br><br>
+
+You received this email because you subscribed to Savvy Group updates.
+
+</p>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>
+`,
         });
 
         sentCount++;
