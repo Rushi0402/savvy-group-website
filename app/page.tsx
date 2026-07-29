@@ -67,7 +67,7 @@ export default function Home() {
       subtitle: "Clean - Safe - Hygienic",
       description:
         "Professional Housekeeping That Enhances Evey Workplace.",
-      image:"/housekeeping.png",
+      image:"/service4.png",
       icon: Handshake,
     },
     {
@@ -82,7 +82,7 @@ export default function Home() {
       title: "Hospitality Management",
       subtitle: "Guest House Operations",
       description: "Supporting organizations through streamlined operations.",
-      image:"/hospitality.png",
+      image:"/hospitality1.png",
       icon: Building2,
     },
     {
@@ -543,7 +543,9 @@ export default function Home() {
                 rounded-xl
                 transition
               "
+              onClick={() => window.location.href = '/services'}
                   >
+                    
                     Explore Services
                   </button>
 
@@ -648,8 +650,7 @@ export default function Home() {
               "
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    Experienced professionals with deep knowledge of
-                    Manufacturing and Corporate sector needs.
+                   Industry professionals empowering businesses with trusted manpower, security, housekeeping, and facility management solutions.
                   </p>
                 </div>
               </div>
@@ -681,7 +682,9 @@ export default function Home() {
 
       <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-8">
 
-        <button className="bg-blue-600 hover:bg-blue-700 transition text-white px-8 py-4 rounded-xl">
+        <button 
+          onClick={() => window.location.href = '/services'}
+          className="bg-blue-600 hover:bg-blue-700 transition text-white px-8 py-4 rounded-xl">
           Learn More
         </button>
 
@@ -738,8 +741,7 @@ export default function Home() {
           className="text-slate-700 text-sm sm:text-base lg:text-lg leading-7 lg:leading-9 max-w-md mx-auto"
           style={{ fontFamily: "Montserrat, sans-serif" }}
         >
-          Experts in Human Resources, Industrial Relations, and Operations
-          from industry backgrounds.
+          Experts in delivering integrated workforce, facility management, and business support solutions across industries.
         </p>
 
       </div>
@@ -776,7 +778,10 @@ export default function Home() {
 
       <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-8">
 
-        <button className="bg-green-600 hover:bg-green-700 transition text-white px-8 py-4 rounded-xl">
+        <button 
+          onClick={() => window.location.href = '/services'}
+          className="bg-green-600 hover:bg-green-700 transition text-white px-8 py-4 rounded-xl"
+        >
           Get Started
         </button>
 
@@ -1945,7 +1950,7 @@ export default function Home() {
       </span>
 
       <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 mt-4">
-        Human Resources Services
+        Integrated Workforce & Facility Management
       </h2>
 
     </div>
@@ -2005,7 +2010,7 @@ export default function Home() {
           <div className="flex items-center gap-4 lg:gap-5 mt-6 lg:mt-8">
 
             <img
-              src="/testimonials/user1.jpg"
+              src="user1.png"
               alt=""
               className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover border-4 border-white shadow-lg"
             />
@@ -2053,7 +2058,7 @@ export default function Home() {
           <div className="flex items-center gap-4 lg:gap-5 mt-6 lg:mt-8">
 
             <img
-              src="/testimonials/user2.jpg"
+              src="user2.png"
               alt=""
               className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover border-4 border-white shadow-lg"
             />
@@ -2100,7 +2105,7 @@ export default function Home() {
           <div className="flex items-center gap-4 lg:gap-5 mt-6 lg:mt-8">
 
             <img
-              src="/testimonials/user3.jpg"
+              src="user3.png"
               alt=""
               className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover border-4 border-white shadow-lg"
             />
@@ -2147,7 +2152,7 @@ export default function Home() {
           <div className="flex items-center gap-4 lg:gap-5 mt-6 lg:mt-8">
 
             <img
-              src="/testimonials/user4.jpg"
+              src="user4.png"
               alt=""
               className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover border-4 border-white shadow-lg"
             />
@@ -2304,7 +2309,7 @@ export default function Home() {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/918551873862"
+        href="https://wa.me/919518381413"
         target="_blank"
         rel="noopener noreferrer"
         className="group bg-white lg:bg-transparent text-center p-6 sm:p-8 lg:p-10 rounded-3xl shadow-lg lg:shadow-none transition-all duration-500 hover:bg-white hover:shadow-2xl hover:-translate-y-3"
@@ -2356,7 +2361,7 @@ export default function Home() {
 
       {/* Call */}
       <a
-        href="tel:+918551873862"
+        href="tel:+919518381413"
         className="group bg-white lg:bg-transparent text-center p-6 sm:p-8 lg:p-10 rounded-3xl shadow-lg lg:shadow-none transition-all duration-500 hover:bg-white hover:shadow-2xl hover:-translate-y-3 sm:col-span-2 lg:col-span-1"
       >
 
@@ -2713,7 +2718,7 @@ export default function Home() {
               />
 
               <span className="text-base sm:text-lg lg:text-xl font-semibold break-all">
-                +91 85518 73862
+                +91 7720010087
               </span>
 
             </div>
@@ -2759,7 +2764,7 @@ export default function Home() {
               />
 
               <span className="text-sm sm:text-base lg:text-lg leading-7">
-                Pune, Maharashtra, India
+                Opp.Kate Square, Above Patanjali Store, Katepuram Chowk, Pimple Gurav,Pune- 411061
               </span>
 
             </div>

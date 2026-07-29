@@ -2314,7 +2314,7 @@ export default function ServicesPage() {
             </p>
 
             <p>
-              +91 XXXXX XXXXX
+             +91 7720010087 / 7720010088
             </p>
 
           </div>
@@ -2345,8 +2345,7 @@ export default function ServicesPage() {
 
             <p>
 
-              Pune, Maharashtra,
-              India
+            Opp.Kate Square, Above Patanjali Store, Katepuram Chowk, Pimple Gurav,Pune- 411061
 
             </p>
 

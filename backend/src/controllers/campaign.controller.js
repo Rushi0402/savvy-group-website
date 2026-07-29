@@ -185,7 +185,7 @@ box-shadow:0 15px 40px rgba(0,0,0,.08);
 <td>
 
 <img
-src="/email-banner.png"
+src="public/email-banner.png"
 width="700"
 style="display:block;width:100%;height:auto;"
 alt="Savvy Group"
