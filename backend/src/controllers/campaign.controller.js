@@ -136,69 +136,81 @@ exports.sendCampaign = async (req, res) => {
       });
     }
 
+    let sentCount = 0;
+    const failed = [];
+
     for (const subscriber of subscribers) {
-      await transporter.sendMail({
-        from: `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`,
-        to: subscriber.email,
-        subject: campaign.subject,
-        html: `
-          <div style="max-width:700px;margin:auto;padding:30px;font-family:Arial,sans-serif;border:1px solid #e5e5e5;border-radius:10px">
+      try {
+        console.log("🔥 NEW EMAIL TEMPLATE");
+        await transporter.sendMail({
+          from: `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`,
+          to: subscriber.email,
+          subject: campaign.subject,
+          html: `
+            <div style="max-width:700px;margin:auto;padding:30px;font-family:Arial,sans-serif;border:1px solid #e5e5e5;border-radius:12px">
 
-            <h1 style="margin:0;color:#0b7466">
-              Savvy Group
-            </h1>
+              <h1 style="margin:0;color:#0b7466">
+                Savvy Groupssssss
+              </h1>
 
-            <p style="margin-top:5px;color:#666">
-              Resources & Management
-            </p>
+              <p style="margin-top:5px;color:#666">
+                Resources & Managementtttt
+              </p>
 
-            <hr style="margin:25px 0">
+              <hr style="margin:25px 0">
 
-            <h2>${campaign.title}</h2>
+              <h2>${campaign.title}</h2>
 
-            <p style="font-size:16px;color:#555">
-              ${campaign.previewText}
-            </p>
+              <p style="font-size:16px;color:#666">
+                ${campaign.previewText || ""}
+              </p>
 
-            <div style="margin-top:25px;font-size:16px;line-height:1.8;color:#333">
-              ${campaign.content.replace(/\n/g, "<br>")}
+              <div style="margin-top:25px;font-size:16px;line-height:1.8;color:#333">
+                ${campaign.content.replace(/\n/g, "<br>")}
+              </div>
+
+              <hr style="margin:35px 0">
+
+              <p>
+                Regards,<br>
+                <strong>Team Savvy Group</strong>
+              </p>
+
             </div>
+          `,
+        });
 
-            <hr style="margin:35px 0">
+        sentCount++;
 
-            <p>
-              Regards,<br>
-              <strong>Savvy Group</strong>
-            </p>
+        console.log(`✅ Sent to ${subscriber.email}`);
+      } catch (err) {
+        console.error(`❌ Failed: ${subscriber.email}`);
+        console.error(err.message);
 
-          </div>
-        `,
-      });
+        failed.push(subscriber.email);
+      }
     }
 
-    const updatedCampaign = await prisma.campaign.update({
-      where: {
-        id,
-      },
+    await prisma.campaign.update({
+      where: { id },
       data: {
         status: "sent",
         sentAt: new Date(),
-        recipients: subscribers.length,
+        recipients: sentCount,
       },
     });
 
     return res.json({
       success: true,
-      message: `Campaign sent successfully to ${subscribers.length} subscriber(s).`,
-      data: updatedCampaign,
+      message: `Campaign sent to ${sentCount} subscriber(s).`,
+      failed,
     });
   } catch (error) {
-    console.error("Campaign Send Error");
-    console.error(error);
+    console.error("Campaign Error:", error);
 
     return res.status(500).json({
       success: false,
-      message: error.message || "Unable to send campaign.",
+      message: error.message,
     });
   }
 };

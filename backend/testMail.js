@@ -11,10 +11,10 @@ async function run() {
     console.log("✅ SMTP Verified");
 
     const info = await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: "SMTP Test",
-      text: "Testing Gmail SMTP",
+      from: `"${process.env.SENDER_NAME}" <${process.env.SENDER_EMAIL}>`,
+      to: process.env.COMPANY_EMAIL,
+      subject: "Brevo SMTP Test",
+      text: "Testing Brevo SMTP",
     });
 
     console.log("✅ Email Sent Successfully");

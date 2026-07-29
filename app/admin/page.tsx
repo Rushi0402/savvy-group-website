@@ -225,6 +225,32 @@ const [campaignForm, setCampaignForm] = useState<CampaignForm>({
     setCampaignOpen(true);
   };
 
+const sendCampaignById = async (id: number) => {
+  const confirmSend = window.confirm(
+    "Send this campaign to all active subscribers?"
+  );
+
+  if (!confirmSend) return;
+
+  try {
+    const response = await adminRequest(`/campaigns/${id}/send`, {
+      method: "POST",
+    });
+
+    toast.success(response.message || "Campaign sent successfully.");
+
+    await loadCampaigns();
+  } catch (error) {
+    console.error(error);
+
+    if (error instanceof AdminApiError) {
+      toast.error(error.message);
+    } else {
+      toast.error("Unable to send campaign.");
+    }
+  }
+};
+
   const sendCampaign = async () => {
     if (!editingCampaignId) {
       toast.success("Please save the campaign before sending.");
@@ -730,7 +756,7 @@ const [campaignForm, setCampaignForm] = useState<CampaignForm>({
           )}
           {activeView === "campaigns" && (
             <CampaignsView
-              campaigns={campaigns}
+               campaigns={campaigns}
               onCreateCampaign={() => {
                 setEditingCampaignId(null);
 
@@ -744,9 +770,10 @@ const [campaignForm, setCampaignForm] = useState<CampaignForm>({
 
                 setCampaignOpen(true);
               }}
-              onViewCampaign={setViewCampaign}
-              onDelete={deleteCampaign}
-              onEdit={editCampaign}
+                onViewCampaign={setViewCampaign}
+                onDelete={deleteCampaign}
+                onEdit={editCampaign}
+                onSend={sendCampaignById}
             />
           )}
 
@@ -1273,16 +1300,15 @@ function CampaignsView({
   onViewCampaign,
   onDelete,
   onEdit,
+  onSend,
 }: {
   campaigns: Campaign[];
   onCreateCampaign: () => void;
   onViewCampaign: (campaign: Campaign) => void;
   onDelete: (id: number) => void;
   onEdit: (campaign: Campaign) => void;
+  onSend: (id: number) => void;
 }) {
-  function onSend(id: number): void {
-    
-  }
 
   return (
     <div className="mx-auto max-w-7xl">
@@ -1397,7 +1423,7 @@ function CampaignsView({
                     <button 
                       onClick={() => onSend(campaign.id)}
                       className="rounded-lg border p-2 hover:bg-slate-100">
-                      <object data="send.svg" width="20" height="20"></object>
+                      <img src="send.svg" width="20" height="20"></img>
                     </button>
 
                     <button
