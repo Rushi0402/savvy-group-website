@@ -185,7 +185,7 @@ box-shadow:0 15px 40px rgba(0,0,0,.08);
 <td>
 
 <img
-src="/email-banner.jpg"
+src="/email-banner.png"
 width="700"
 style="display:block;width:100%;height:auto;"
 alt="Savvy Group"
@@ -208,7 +208,7 @@ font-size:38px;
 color:#062c27;
 ">
 
-Savvy Group
+Savvy Groups
 
 </h1>
 
@@ -360,7 +360,7 @@ font-weight:bold;
 color:#D6AE45;
 ">
 
-Savvy Group
+Savvy Groups
 
 </p>
 

@@ -76,6 +76,9 @@ type CampaignsViewProps = {
   loadCampaigns: () => void;
   onCreateCampaign: () => void;
   onDelete: (id: number) => void;
+
+  onSend: (id: number) => void;
+  sendingCampaignId: number | null;
 };
 
 type CampaignForm = {
@@ -110,6 +113,7 @@ export default function AdminPage() {
     null,
   );
   const [checkingSession, setCheckingSession] = useState(true);
+  const [sendingCampaignId, setSendingCampaignId] = useState<number | null>(null);  
   const [authenticated, setAuthenticated] = useState(false);
   const [adminEmail, setAdminEmail] = useState("");
   const [activeView, setActiveView] = useState<AdminView>("overview");
@@ -226,28 +230,19 @@ const [campaignForm, setCampaignForm] = useState<CampaignForm>({
   };
 
 const sendCampaignById = async (id: number) => {
-  const confirmSend = window.confirm(
-    "Send this campaign to all active subscribers?"
-  );
-
-  if (!confirmSend) return;
-
   try {
+    setSendingCampaignId(id);
+
     const response = await adminRequest(`/campaigns/${id}/send`, {
       method: "POST",
     });
 
     toast.success(response.message || "Campaign sent successfully.");
-
     await loadCampaigns();
-  } catch (error) {
-    console.error(error);
-
-    if (error instanceof AdminApiError) {
-      toast.error(error.message);
-    } else {
-      toast.error("Unable to send campaign.");
-    }
+  } catch (error: any) {
+    toast.error(error.message || "Failed to send campaign.");
+  } finally {
+    setSendingCampaignId(null);
   }
 };
 
@@ -774,6 +769,7 @@ const sendCampaignById = async (id: number) => {
                 onDelete={deleteCampaign}
                 onEdit={editCampaign}
                 onSend={sendCampaignById}
+                sendingCampaignId={sendingCampaignId}
             />
           )}
 
@@ -1301,6 +1297,7 @@ function CampaignsView({
   onDelete,
   onEdit,
   onSend,
+  sendingCampaignId,
 }: {
   campaigns: Campaign[];
   onCreateCampaign: () => void;
@@ -1308,6 +1305,7 @@ function CampaignsView({
   onDelete: (id: number) => void;
   onEdit: (campaign: Campaign) => void;
   onSend: (id: number) => void;
+  sendingCampaignId: number | null;
 }) {
 
   return (
@@ -1420,11 +1418,26 @@ function CampaignsView({
                       />
                     </button>
 
-                    <button 
-                      onClick={() => onSend(campaign.id)}
-                      className="rounded-lg border p-2 hover:bg-slate-100">
-                      <img src="send.svg" width="20" height="20"></img>
-                    </button>
+                    <button
+  onClick={() => onSend(campaign.id)}
+  disabled={
+    sendingCampaignId === campaign.id ||
+    campaign.status === "sent"
+  }
+  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+    campaign.status === "sent"
+      ? "bg-green-600 text-white cursor-not-allowed"
+      : sendingCampaignId === campaign.id
+      ? "bg-gray-400 text-white cursor-not-allowed"
+      : "bg-blue-600 hover:bg-blue-700 text-white"
+  }`}
+>
+  {campaign.status === "sent"
+    ? "Sent"
+    : sendingCampaignId === campaign.id
+    ? "Sending..."
+    : "Send"}
+</button>
 
                     <button
                       onClick={() => onDelete(campaign.id)}
