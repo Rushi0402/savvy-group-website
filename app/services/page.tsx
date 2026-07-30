@@ -40,7 +40,7 @@ export default function ServicesPage() {
                             HERO SECTION
       ========================================================== */}
 
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden overflow-x-hidden">
 
         {/* Background Image */}
 
@@ -58,7 +58,7 @@ export default function ServicesPage() {
 
         {/* Content */}
 
-        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 min-h-screen flex items-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 min-h-screen flex items-center">
 
           <motion.div
             initial={{ opacity: 0, y: 70 }}
@@ -145,7 +145,7 @@ export default function ServicesPage() {
   id="security"
   className="py-28 bg-white"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     {/* Heading */}
 
@@ -164,7 +164,10 @@ export default function ServicesPage() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-5xl md:text-6xl font-black mt-6 text-slate-900"
+        className="text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black mt-6 text-slate-900"
       >
         Security Services
       </motion.h2>
@@ -193,7 +196,7 @@ export default function ServicesPage() {
 
         {/* Floating Badge */}
 
-        <div className="absolute -top-8 -left-8 bg-green-700 text-white rounded-3xl px-8 py-6 shadow-xl">
+        <div className="absolute -top-6 lg:p-8 -left-8 bg-green-700 text-white rounded-3xl px-8 py-6 shadow-xl">
 
           <ShieldCheck size={40}/>
 
@@ -307,7 +310,7 @@ export default function ServicesPage() {
   id="housekeeping"
   className="py-28 bg-[#edf4f1]"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     {/* Heading */}
 
@@ -326,7 +329,10 @@ export default function ServicesPage() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-5xl md:text-6xl font-black mt-6 text-slate-900"
+        className="text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black mt-6 text-slate-900"
       >
         Housekeeping Services
       </motion.h2>
@@ -451,7 +457,7 @@ export default function ServicesPage() {
 
         {/* Floating Card */}
 
-        <div className="absolute -bottom-10 left-10 bg-white rounded-3xl shadow-2xl p-8 w-72">
+        <div className="absolute -bottom-10 left-10 bg-white rounded-3xl shadow-2xl p-6 lg:p-8 w-72">
 
           <h4 className="font-bold text-2xl text-slate-900">
 
@@ -483,9 +489,9 @@ export default function ServicesPage() {
 
 <section
   id="ifm"
-  className="py-32 bg-white"
+  className="py-16 md:py-20 lg:py-32 bg-white"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     {/* Heading */}
 
@@ -504,7 +510,10 @@ export default function ServicesPage() {
         initial={{ opacity: 0,y:20 }}
         whileInView={{ opacity:1,y:0 }}
         viewport={{ once:true }}
-        className="mt-5 text-5xl md:text-6xl font-black text-slate-900"
+        className="mt-5 text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black text-slate-900"
       >
         Integrated Facility
         <span className="block text-green-700">
@@ -556,7 +565,7 @@ export default function ServicesPage() {
 
       </h3>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:p-8 mt-16">
 
         {[
           "Soft Services Management",
@@ -580,7 +589,7 @@ export default function ServicesPage() {
               scale:1.03,
             }}
 
-            className="bg-[#edf4f1] rounded-3xl p-8 shadow hover:shadow-xl transition"
+            className="bg-[#edf4f1] rounded-3xl p-6 lg:p-8 shadow hover:shadow-xl transition"
 
           >
 
@@ -614,7 +623,7 @@ export default function ServicesPage() {
 
       </h3>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:p-8 mt-16">
 
         {[
           "Single Point Accountability",
@@ -635,7 +644,7 @@ export default function ServicesPage() {
               y:-8,
             }}
 
-            className="rounded-3xl border p-8 text-center"
+            className="rounded-3xl border p-6 lg:p-8 text-center"
 
           >
 
@@ -703,9 +712,9 @@ export default function ServicesPage() {
 
 <section
   id="hospitality"
-  className="py-32 bg-[#edf4f1]"
+  className="py-16 md:py-20 lg:py-32 bg-[#edf4f1]"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     <div className="grid lg:grid-cols-2 gap-20 items-center">
 
@@ -725,7 +734,7 @@ export default function ServicesPage() {
           className="rounded-[35px] shadow-2xl"
         />
 
-        <div className="absolute bottom-8 left-8 bg-white rounded-3xl shadow-xl p-8">
+        <div className="absolute bottom-8 left-8 bg-white rounded-3xl shadow-xl p-6 lg:p-8">
 
           <h3 className="text-5xl font-black text-green-700">
             24×7
@@ -852,9 +861,9 @@ export default function ServicesPage() {
 
 <section
   id="transportation"
-  className="py-32 bg-white"
+  className="py-16 md:py-20 lg:py-32 bg-white"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     {/* Heading */}
 
@@ -873,7 +882,10 @@ export default function ServicesPage() {
         initial={{ opacity:0,y:20 }}
         whileInView={{ opacity:1,y:0 }}
         viewport={{ once:true }}
-        className="text-5xl md:text-6xl font-black mt-6 text-slate-900"
+        className="text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black mt-6 text-slate-900"
       >
         Project Vechicle Services
       </motion.h2>
@@ -890,7 +902,7 @@ export default function ServicesPage() {
 
     {/* Timeline */}
 
-    <div className="grid md:grid-cols-3 gap-8 mt-24">
+    <div className="grid md:grid-cols-3 gap-6 lg:p-8 mt-24">
 
       {[
         {
@@ -934,7 +946,7 @@ export default function ServicesPage() {
             y:-10,
           }}
 
-          className="relative rounded-3xl border bg-[#edf4f1] p-8 shadow hover:shadow-xl transition"
+          className="relative rounded-3xl border bg-[#edf4f1] p-6 lg:p-8 shadow hover:shadow-xl transition"
 
         >
 
@@ -1032,7 +1044,7 @@ export default function ServicesPage() {
 
     <div className="mt-24 bg-[#D6AE45] rounded-[35px] p-12">
 
-      <div className="grid md:grid-cols-4 gap-8 text-center">
+      <div className="grid md:grid-cols-4 gap-6 lg:p-8 text-center">
 
         {[
           "Single Point of Contact",
@@ -1090,9 +1102,9 @@ export default function ServicesPage() {
 
 <section
   id="manpower"
-  className="py-32 bg-[#edf4f1]"
+  className="py-16 md:py-20 lg:py-32 bg-[#edf4f1]"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     {/* Heading */}
 
@@ -1111,7 +1123,10 @@ export default function ServicesPage() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-5xl md:text-6xl font-black mt-6 text-slate-900"
+        className="text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black mt-6 text-slate-900"
       >
         Manpower Services
       </motion.h2>
@@ -1124,7 +1139,18 @@ export default function ServicesPage() {
 
     </div>
 
-    <div className="grid lg:grid-cols-2 gap-20 mt-24 items-center">
+    <div
+  className="
+  grid
+  grid-cols-1
+  lg:grid-cols-2
+  gap-10
+  lg:gap-20
+  mt-14
+  lg:mt-24
+  items-center
+  "
+>
 
       {/* Left Side */}
 
@@ -1144,7 +1170,7 @@ export default function ServicesPage() {
               y: -8,
               scale: 1.03,
             }}
-            className="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl hover:border-[#D6AE45] border transition-all"
+            className="bg-white rounded-3xl p-6 lg:p-8 shadow-md hover:shadow-2xl hover:border-[#D6AE45] border transition-all"
           >
 
             <div className="text-5xl">
@@ -1168,7 +1194,7 @@ export default function ServicesPage() {
               y: -8,
               scale: 1.03,
             }}
-            className="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl hover:border-[#D6AE45] border transition-all"
+            className="bg-white rounded-3xl p-6 lg:p-8 shadow-md hover:shadow-2xl hover:border-[#D6AE45] border transition-all"
           >
 
             <div className="text-5xl">
@@ -1192,7 +1218,7 @@ export default function ServicesPage() {
               y: -8,
               scale: 1.03,
             }}
-            className="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl hover:border-[#D6AE45] border transition-all"
+            className="bg-white rounded-3xl p-6 lg:p-8 shadow-md hover:shadow-2xl hover:border-[#D6AE45] border transition-all"
           >
 
             <div className="text-5xl">
@@ -1216,7 +1242,7 @@ export default function ServicesPage() {
               y: -8,
               scale: 1.03,
             }}
-            className="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl hover:border-[#D6AE45] border transition-all"
+            className="bg-white rounded-3xl p-6 lg:p-8 shadow-md hover:shadow-2xl hover:border-[#D6AE45] border transition-all"
           >
 
             <div className="text-5xl">
@@ -1240,30 +1266,59 @@ export default function ServicesPage() {
       {/* Right Side */}
 
       <motion.div
-        initial={{ opacity: 0, x: 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: .8 }}
-        className="relative"
-      >
+  initial={{ opacity: 0, x: 80 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+  className="relative pt-10 lg:pt-16"
+>
 
         <img
-          src="/manpower.png"
-          alt="Manpower Services"
-          className="rounded-[35px] shadow-2xl"
-        />
+  src="/manpower.png"
+  alt="Manpower Services"
+  className="
+    w-full
+    h-[320px]
+    sm:h-[420px]
+    lg:h-[650px]
+    object-cover
+    rounded-[25px]
+    lg:rounded-[35px]
+    shadow-2xl
+  "
+/>
 
         {/* Floating Badge */}
 
-        <div className="absolute -top-18 left-100 bg-green-700 text-white rounded-3xl shadow-xl px-10 py-8">
+        <div
+  className="
+    absolute
+    left-1/2
+    -translate-x-1/2
+    bottom-0
+    translate-y-1/2
 
-          <h3 className="text-5xl font-black">
-            500+
-          </h3>
+    bg-[#0B8F3A]
+    text-white
 
-          <p className="mt-2">
-            Professional Workforce
-          </p>
+    rounded-3xl
+    shadow-2xl
+
+    px-6 py-5
+    sm:px-8 sm:py-6
+    lg:px-10 lg:py-7
+
+    z-20
+  "
+>
+
+          <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-none text-center">
+    500+
+  </h3>
+
+           <p className="mt-2 text-sm sm:text-base lg:text-xl font-medium text-center whitespace-nowrap">
+    Professional Workforce
+  </p>
 
         </div>
 
@@ -1286,7 +1341,7 @@ export default function ServicesPage() {
 >
   <div className="rounded-[35px] bg-[#D6AE45] p-10 shadow-xl">
 
-    <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+    <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 lg:p-8 text-center">
 
       {[
         "Verified Employees",
@@ -1366,9 +1421,9 @@ export default function ServicesPage() {
 
 <section
   id="it"
-  className="py-32 bg-[#0b1720] text-white"
+  className="py-16 md:py-20 lg:py-32 bg-[#0b1720] text-white"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     {/* Heading */}
 
@@ -1387,7 +1442,10 @@ export default function ServicesPage() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-5xl md:text-6xl font-black mt-6"
+        className="text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black mt-6"
       >
         Technology Services
       </motion.h2>
@@ -1404,7 +1462,7 @@ export default function ServicesPage() {
 
     {/* Service Cards */}
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-24">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:p-8 mt-24">
 
       {/* CCTV */}
 
@@ -1753,9 +1811,9 @@ export default function ServicesPage() {
 
 <section
   id="industries"
-  className="py-32 bg-white"
+  className="py-16 md:py-20 lg:py-32 bg-white"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     {/* Heading */}
 
@@ -1774,7 +1832,10 @@ export default function ServicesPage() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-5xl md:text-6xl font-black mt-6 text-slate-900"
+        className="text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black mt-6 text-slate-900"
       >
         Trusted Across
         <span className="block text-green-700">
@@ -1794,7 +1855,7 @@ export default function ServicesPage() {
 
     {/* Industry Cards */}
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-24">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:p-8 mt-24">
 
       {[
         {
@@ -1857,7 +1918,7 @@ export default function ServicesPage() {
             scale:1.03,
           }}
 
-          className="bg-[#edf4f1] rounded-3xl p-8 shadow hover:shadow-xl transition border hover:border-[#D6AE45]"
+          className="bg-[#edf4f1] rounded-3xl p-6 lg:p-8 shadow hover:shadow-xl transition border hover:border-[#D6AE45]"
 
         >
 
@@ -1927,9 +1988,9 @@ export default function ServicesPage() {
 
 <section
   id="why-savvy"
-  className="py-32 bg-[#edf4f1]"
+  className="py-16 md:py-20 lg:py-32 bg-[#edf4f1]"
 >
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     {/* Heading */}
 
@@ -1948,7 +2009,10 @@ export default function ServicesPage() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-5xl md:text-6xl font-black mt-6 text-slate-900"
+        className="text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black mt-6 text-slate-900"
       >
         Why Businesses Trust
         <span className="block text-green-700">
@@ -1968,7 +2032,7 @@ export default function ServicesPage() {
 
     {/* Cards */}
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-24">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:p-8 mt-24">
 
       {/* Card */}
 
@@ -2092,7 +2156,7 @@ export default function ServicesPage() {
                     CALL TO ACTION
 =========================================================== */}
 
-<section className="py-32 bg-[#0F6A5B] relative overflow-hidden">
+<section className="py-16 md:py-20 lg:py-32 bg-[#0F6A5B] relative overflow-hidden">
 
   {/* Background Decorations */}
 
@@ -2100,7 +2164,7 @@ export default function ServicesPage() {
 
   <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-white/5 blur-3xl" />
 
-  <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -2116,7 +2180,10 @@ export default function ServicesPage() {
 
       </span>
 
-      <h2 className="mt-6 text-5xl md:text-6xl font-black text-white leading-tight">
+      <h2 className="mt-6 text-3xl
+sm:text-4xl
+lg:text-5xl
+xl:text-6xl font-black text-white leading-tight">
 
         Ready to Strengthen
 
@@ -2189,7 +2256,7 @@ export default function ServicesPage() {
 
   {/* Main Footer */}
 
-  <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-20">
 
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-14">
 
