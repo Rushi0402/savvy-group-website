@@ -55,11 +55,11 @@ export default function Home() {
 
   const services = [
     {
-      title: "Sercurity Services",
+      title: "Security Services",
       subtitle: "Find Top Talent",
       description:
         "Trusted Security Solutions For Every Industry.",
-      image:"/Service1.png",
+      image:"/Hsecurity.png",
       icon: Users,
     },
     {
@@ -94,6 +94,14 @@ export default function Home() {
       icon: BikeIcon,
     },
     {
+      title: "Manpower Services",
+      subtitle: "Professional Workforce Solutions",
+      description:
+        "Providing dependable manpower solutions that support business growth.",
+      image:"/Service1.png",
+      icon: Briefcase,
+    },
+    {
       title: "Smart Technology Solutions",
       subtitle: "IT Solutions",
       description:
@@ -101,14 +109,7 @@ export default function Home() {
       image:"/cctv.png",
       icon: Briefcase,
     },
-    {
-      title: "Manpower Services",
-      subtitle: "Professional Workforce Solutions",
-      description:
-        "Providing dependable manpower solutions that support business growth.",
-      image:"/manpower.png",
-      icon: Briefcase,
-    },
+  
     
   ];
 

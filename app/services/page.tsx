@@ -1,5 +1,9 @@
 "use client";
 
+import "swiper/css";
+import "swiper/css/autoplay";
+
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -1114,11 +1118,7 @@ export default function ServicesPage() {
 
       <p className="mt-8 text-lg leading-9 text-slate-600">
 
-        Savvy Group provides skilled, semi-skilled and
-        unskilled manpower across multiple industries.
-        We help organizations quickly deploy qualified
-        professionals while ensuring compliance,
-        productivity and operational excellence.
+        Savvy Group provides skilled, semi-skilled, and unskilled manpower solutions across industries, corporate offices, hospitals, warehouses, logistics, hospitality, and infrastructure projects. We deploy reliable professionals ranging from office support staff to technical and operational personnel, ensuring productivity, compliance, and seamless workforce management.
 
       </p>
 
@@ -1155,9 +1155,8 @@ export default function ServicesPage() {
               Skilled Workforce
             </h3>
 
-            <p className="mt-4 text-slate-600 leading-8">
-              Experienced professionals for industrial,
-              engineering and technical operations.
+            <p className="mt-4 text-slate-600 leading-7">
+              Qualified professionals for engineering, technical operations, machine handling, electrical, mechanical, fabrication, maintenance, and supervisory roles.
             </p>
 
           </motion.div>
@@ -1180,9 +1179,8 @@ export default function ServicesPage() {
               Semi Skilled
             </h3>
 
-            <p className="mt-4 text-slate-600 leading-8">
-              Reliable manpower for manufacturing,
-              production and support activities.
+            <p className="mt-4 text-slate-600 leading-7">
+              Production operators, helpers, warehouse associates, packers, loaders, assembly line staff, housekeeping supervisors, and field support personnel.
             </p>
 
           </motion.div>
@@ -1202,12 +1200,11 @@ export default function ServicesPage() {
             </div>
 
             <h3 className="mt-6 text-2xl font-bold text-slate-900">
-              Administrative Staff
+            Office & Corporate Support
             </h3>
 
-            <p className="mt-4 text-slate-600 leading-8">
-              Office executives, reception,
-              back-office and administrative support.
+            <p className="mt-4 text-slate-600 leading-7">
+              Office Boys, Office Assistants, Receptionists, Data Entry Operators, Admin Assistants, HR Support, Account Assistants, and Back Office Executives.
             </p>
 
           </motion.div>
@@ -1223,16 +1220,15 @@ export default function ServicesPage() {
           >
 
             <div className="text-5xl">
-              ⚙️
+              👨‍🍳
             </div>
 
             <h3 className="mt-6 text-2xl font-bold text-slate-900">
-              Payroll Management
+              Hospitality & Kitchen Staff
             </h3>
 
-            <p className="mt-4 text-slate-600 leading-8">
-              End-to-end payroll processing,
-              compliance and workforce administration.
+            <p className="mt-4 text-slate-600 leading-7">
+              Cooks, Assistant Cooks, Kitchen Helpers, Stewards, Utility Staff, Housekeeping Staff, Guest House Attendants, and Catering Support.
             </p>
 
           </motion.div>
