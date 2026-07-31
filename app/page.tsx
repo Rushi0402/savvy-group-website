@@ -603,7 +603,7 @@ export default function Home() {
               lg:max-w-lg
             "
                 >
-                  <div className="w-20 lg:w-28 h-2 bg-[#D4AF37] rounded-full mx-auto mb-6"></div>
+                  <div className="w-20 lg:w-28 h-2 bg-[#D4AF37] rounded-full mx-auto mt-5 mb-6"></div>
 
                   <p
                     className="
