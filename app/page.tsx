@@ -2169,7 +2169,7 @@ export default function Home() {
                 value={formData.firstName}
                 onChange={handleChange}
                 placeholder="First Name"
-                className="w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
+                className="text-[#D6AE45] w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               <input
@@ -2178,7 +2178,7 @@ export default function Home() {
                 value={formData.lastName}
                 onChange={handleChange}
                 placeholder="Last Name"
-                className="w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
+                className="text-[#D6AE45] w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -2189,7 +2189,7 @@ export default function Home() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone"
-                className="w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
+                className="text-[#D6AE45] w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               <input
@@ -2198,7 +2198,7 @@ export default function Home() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
+                className="text-[#D6AE45] w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -2208,7 +2208,7 @@ export default function Home() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Message"
-              className="w-full p-5 rounded-md shadow-md outline-none resize-none focus:ring-2 focus:ring-orange-500"
+              className="text-[#D6AE45] w-full p-5 rounded-md shadow-md outline-none resize-none focus:ring-2 focus:ring-orange-500"
             />
 
             <div className="flex justify-center">
