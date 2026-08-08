@@ -2377,7 +2377,7 @@ xl:text-6xl font-black text-white leading-tight">
             </p>
 
             <p>
-             +91 7720010087 / 7720010088
+             +91 7720020699
             </p>
 
           </div>
@@ -2408,7 +2408,7 @@ xl:text-6xl font-black text-white leading-tight">
 
             <p>
 
-            Opp.Kate Square, Above Patanjali Store, Katepuram Chowk, Pimple Gurav,Pune- 411061
+            1st floor, balaji complex, Vinayak nagar, Pimple gurav, pune-411061
 
             </p>
 

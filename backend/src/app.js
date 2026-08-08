@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 
 const contactRoutes = require("./routes/contact.routes");
 const newsletterRoutes = require("./routes/newsletter.routes");
@@ -9,36 +11,48 @@ const errorHandler = require("./middleware/error");
 
 const app = express();
 
-// ==========================================
-// CORS Configuration
-// ==========================================
+// ======================================================
+// BASIC SECURITY
+// ======================================================
 
-console.log("FRONTEND_URL =", process.env.FRONTEND_URL);
+app.disable("x-powered-by");
+
+// Security headers
+app.use(helmet());
+
+// If your backend is deployed behind a reverse proxy
+app.set("trust proxy", 1);
+
+// ======================================================
+// CORS CONFIGURATION
+// ======================================================
 
 const allowedOrigins = (
   process.env.FRONTEND_URL || "http://localhost:3000"
 )
   .split(",")
-  .map((url) => url.trim().replace(/\/$/, ""));
+  .map((url) => url.trim().replace(/\/$/, ""))
+  .filter(Boolean);
+
+console.log("================================");
+console.log("Allowed CORS Origins:", allowedOrigins);
+console.log("================================");
 
 const corsOptions = {
   origin(origin, callback) {
-    const allowedOrigins = (
-      process.env.FRONTEND_URL || ""
-    )
-      .split(",")
-      .map((url) => url.trim().replace(/\/$/, ""));
-
-    const requestOrigin = origin?.replace(/\/$/, "");
-
-    console.log("================================");
-    console.log("Origin:", requestOrigin);
-    console.log("Allowed:", allowedOrigins);
-    console.log("================================");
-
-    if (!origin || allowedOrigins.includes(requestOrigin)) {
+    // Allow requests without an Origin header
+    // such as Postman/server-to-server requests.
+    if (!origin) {
       return callback(null, true);
     }
+
+    const requestOrigin = origin.replace(/\/$/, "");
+
+    if (allowedOrigins.includes(requestOrigin)) {
+      return callback(null, true);
+    }
+
+    console.log("❌ Blocked CORS Origin:", requestOrigin);
 
     return callback(new Error("Origin is not allowed by CORS"));
   },
@@ -64,35 +78,68 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
 
-// ==========================================
-// Body Parser
-// ==========================================
+// ======================================================
+// RATE LIMITING
+// ======================================================
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+const generalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
 
-// ==========================================
-// Routes
-// ==========================================
+  max: 200,
 
-app.use("/api/contact", contactRoutes);
-app.use("/api/newsletter", newsletterRoutes);
-app.use("/api/admin/campaigns", campaignRoutes);
-app.use("/api/admin", adminRoutes);
+  standardHeaders: true,
 
-// ==========================================
-// Health Check
-// ==========================================
+  legacyHeaders: false,
 
-app.get("/", (req, res) => {
-  res.send("Savvy Group Backend Running 🚀");
+  message: {
+    success: false,
+    message: "Too many requests. Please try again later.",
+  },
 });
 
-// ==========================================
-// Error Handler
-// ==========================================
+app.use(generalLimiter);
+
+// ======================================================
+// BODY PARSER
+// ======================================================
+
+app.use(
+  express.json({
+    limit: "100kb",
+  })
+);
+
+app.use(
+  express.urlencoded({
+    extended: true,
+    limit: "100kb",
+  })
+);
+
+// ======================================================
+// ROUTES
+// ======================================================
+
+app.use("/api/contact", contactRoutes);
+
+app.use("/api/newsletter", newsletterRoutes);
+
+app.use("/api/admin/campaigns", campaignRoutes);
+
+app.use("/api/admin", adminRoutes);
+
+// ======================================================
+// HEALTH CHECK
+// ======================================================
+
+app.get("/", (req, res) => {
+  res.status(200).send("Savvy Group Backend Running 🚀");
+});
+
+// ======================================================
+// ERROR HANDLER
+// ======================================================
 
 app.use(errorHandler);
 

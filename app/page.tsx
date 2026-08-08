@@ -1415,7 +1415,7 @@ export default function Home() {
 
 {/* OUR PRESENCE ACROSS INDIA */}
 
-<section className="bg-[#f6f7f9] relative py-16 sm:py-20 lg:py-24">
+<section className="bg-[#f6f7f9] relative py-12 sm:py-16 lg:py-24">
   <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
     {/* Heading */}
 
@@ -1579,29 +1579,34 @@ export default function Home() {
       </div>
             {/* RIGHT SIDE MAP */}
 
-      <div className="relative flex justify-center items-center order-first lg:order-last">
+      <div className="relative flex justify-center items-center order-first lg:order-last w-full">
 
-        <div className="w-full flex justify-center">
+  <div className="w-full flex justify-center">
 
-          <object
-            data="in.svg"
-            type="image/svg+xml"
-            className="
-              w-full
-              max-w-[340px]
-              sm:max-w-[450px]
-              md:max-w-[550px]
-              lg:max-w-[700px]
-              xl:max-w-[850px]
-              h-auto
-            "
-          >
-            Your browser does not support SVG.
-          </object>
+    <object
+      data="in.svg"
+      type="image/svg+xml"
+      aria-label="Savvy Group presence across India"
+      className="
+        w-[94vw]
+        max-w-[520px]
+        sm:w-[85vw]
+        sm:max-w-[600px]
+        md:w-[75vw]
+        md:max-w-[650px]
+        lg:w-[700px]
+        lg:max-w-[700px]
+        xl:w-[850px]
+        xl:max-w-[850px]
+        h-auto
+      "
+    >
+      Your browser does not support SVG.
+    </object>
 
-        </div>
+  </div>
 
-      </div>
+</div>
 
     </div>
 
@@ -1937,262 +1942,7 @@ export default function Home() {
 </section>
 
 
-    {/* TESTIMONIAL */}
 
-      <section className="bg-[#eef4f7] py-16 sm:py-20 lg:py-24 overflow-hidden">
-  <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-
-    {/* Heading */}
-
-    <div className="text-center lg:text-left mb-12 lg:mb-16">
-
-      <span className="uppercase tracking-[3px] sm:tracking-[4px] text-[#005C5C] text-xs sm:text-sm font-semibold">
-        TESTIMONIAL
-      </span>
-
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 mt-4">
-        Integrated Workforce & Facility Management
-      </h2>
-
-    </div>
-
-    <Swiper
-      modules={[Navigation, Autoplay]}
-      navigation={{
-        nextEl: ".testimonial-next",
-        prevEl: ".testimonial-prev",
-      }}
-      autoplay={{
-        delay: 4000,
-        disableOnInteraction: false,
-      }}
-      loop
-      spaceBetween={30}
-      slidesPerView={2}
-      breakpoints={{
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 1,
-          spaceBetween: 25,
-        },
-        1024: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-      }}
-      className="!overflow-visible"
-    >
-      {/* Card 1 */}
-
-      <SwiperSlide>
-        <div className="h-full">
-
-          <div className="relative bg-white rounded-[25px] lg:rounded-[35px] shadow-xl px-6 sm:px-8 lg:px-10 py-6 lg:py-8 h-full">
-
-            <div className="absolute -top-4 left-6 lg:left-8 bg-[#FFD86B] px-5 lg:px-7 py-2 rounded-full">
-
-              <span className="text-[#005C5C] text-sm lg:text-base tracking-wider">
-                ★★★★★
-              </span>
-
-            </div>
-
-            <p className="mt-8 text-slate-700 text-base lg:text-lg leading-7 lg:leading-8 min-h-[160px]">
-              Working with Savvy Group has been a game-changer for our
-              business. Their team provided expert guidance on
-              streamlining our HR processes and workforce management.
-            </p>
-
-          </div>
-
-          <div className="flex items-center gap-4 lg:gap-5 mt-6 lg:mt-8">
-
-            <img
-              src="user1.png"
-              alt=""
-              className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover border-4 border-white shadow-lg"
-            />
-
-            <div>
-
-              <h3 className="text-[#005C5C] text-xl lg:text-2xl font-bold">
-                HR Manager
-              </h3>
-
-              <p className="text-gray-600 text-sm lg:text-base">
-                Manufacturing Company
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </SwiperSlide>
-
-      {/* Card 2 */}
-
-      <SwiperSlide>
-        <div className="h-full">
-
-          <div className="relative bg-white rounded-[25px] lg:rounded-[35px] shadow-xl px-6 sm:px-8 lg:px-10 py-6 lg:py-8 h-full">
-
-            <div className="absolute -top-4 left-6 lg:left-8 bg-[#FFD86B] px-5 lg:px-7 py-2 rounded-full">
-
-              <span className="text-[#005C5C] text-sm lg:text-base tracking-wider">
-                ★★★★★
-              </span>
-
-            </div>
-
-            <p className="mt-8 text-slate-700 text-base lg:text-lg leading-7 lg:leading-8 min-h-[160px]">
-              The security personnel deployed by Savvy Group are highly
-              trained and professional. Their commitment to quality
-              service exceeded our expectations.
-            </p>
-
-          </div>
-
-          <div className="flex items-center gap-4 lg:gap-5 mt-6 lg:mt-8">
-
-            <img
-              src="user2.png"
-              alt=""
-              className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover border-4 border-white shadow-lg"
-            />
-
-            <div>
-
-              <h3 className="text-[#005C5C] text-xl lg:text-2xl font-bold">
-                Facility Head
-              </h3>
-
-              <p className="text-gray-600 text-sm lg:text-base">
-                Corporate Office
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </SwiperSlide>
-
-      {/* Card 3 */}
-
-      <SwiperSlide>
-        <div className="h-full">
-
-          <div className="relative bg-white rounded-[25px] lg:rounded-[35px] shadow-xl px-6 sm:px-8 lg:px-10 py-6 lg:py-8 h-full">
-
-            <div className="absolute -top-4 left-6 lg:left-8 bg-[#FFD86B] px-5 lg:px-7 py-2 rounded-full">
-
-              <span className="text-[#005C5C] text-sm lg:text-base tracking-wider">
-                ★★★★★
-              </span>
-
-            </div>
-
-            <p className="mt-8 text-slate-700 text-base lg:text-lg leading-7 lg:leading-8 min-h-[160px]">
-              Excellent manpower solutions and quick deployment.
-              Professional approach and highly responsive team.
-            </p>
-
-          </div>
-
-          <div className="flex items-center gap-4 lg:gap-5 mt-6 lg:mt-8">
-
-            <img
-              src="user3.png"
-              alt=""
-              className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover border-4 border-white shadow-lg"
-            />
-
-            <div>
-
-              <h3 className="text-[#005C5C] text-xl lg:text-2xl font-bold">
-                Operations Manager
-              </h3>
-
-              <p className="text-gray-600 text-sm lg:text-base">
-                Logistics Company
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </SwiperSlide>
-
-      {/* Card 4 */}
-
-      <SwiperSlide>
-        <div className="h-full">
-
-          <div className="relative bg-white rounded-[25px] lg:rounded-[35px] shadow-xl px-6 sm:px-8 lg:px-10 py-6 lg:py-8 h-full">
-
-            <div className="absolute -top-4 left-6 lg:left-8 bg-[#FFD86B] px-5 lg:px-7 py-2 rounded-full">
-
-              <span className="text-[#005C5C] text-sm lg:text-base tracking-wider">
-                ★★★★★
-              </span>
-
-            </div>
-
-            <p className="mt-8 text-slate-700 text-base lg:text-lg leading-7 lg:leading-8 min-h-[160px]">
-              Their housekeeping and support staff have significantly
-              improved operational efficiency at our premises.
-            </p>
-
-          </div>
-
-          <div className="flex items-center gap-4 lg:gap-5 mt-6 lg:mt-8">
-
-            <img
-              src="user4.png"
-              alt=""
-              className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover border-4 border-white shadow-lg"
-            />
-
-            <div>
-
-              <h3 className="text-[#005C5C] text-xl lg:text-2xl font-bold">
-                Admin Head
-              </h3>
-
-              <p className="text-gray-600 text-sm lg:text-base">
-                Retail Chain
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </SwiperSlide>
-
-    </Swiper>
-
-    {/* Navigation */}
-
-    <div className="flex justify-center gap-4 sm:gap-5 mt-10 lg:mt-12">
-
-      <button className="testimonial-prev w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-lg hover:bg-[#005C5C] hover:text-white transition-all duration-300">
-        ←
-      </button>
-
-      <button className="testimonial-next w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-lg hover:bg-[#005C5C] hover:text-white transition-all duration-300">
-        →
-      </button>
-
-    </div>
-
-  </div>
-</section>
 {/* ================= NEWSLETTER SECTION ================= */}
 
       <section className="py-20">
@@ -2546,55 +2296,7 @@ export default function Home() {
 
         </div>
 
-        {/* Newsletter */}
-
-        <div>
-
-          <h4 className="text-lg font-semibold mb-4">
-            Subscribe Newsletter
-          </h4>
-
-          <div className="flex flex-col sm:flex-row">
-
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="
-                w-full
-                px-5
-                py-4
-                bg-black/30
-                border
-                border-slate-700
-                rounded-xl
-                sm:rounded-r-none
-                outline-none
-                placeholder:text-slate-400
-              "
-            />
-
-            <button
-              className="
-                mt-3
-                sm:mt-0
-                sm:w-16
-                bg-[#005C5C]
-                hover:bg-[#D6AE45]
-                transition-all
-                rounded-xl
-                sm:rounded-l-none
-                flex
-                items-center
-                justify-center
-                py-4
-              "
-            >
-              <Send size={22} />
-            </button>
-
-          </div>
-
-        </div>
+      
 
       </div>
 
@@ -2618,7 +2320,6 @@ export default function Home() {
             { name: "About Us", href: "/#bout" },
             { name: "Our Presence", href: "/#presence" },
             { name: "Services", href: "/#services" },
-            { name: "Testimonials", href: "/#testimonials" },
             { name: "Contact Us", href: "/#contact" },
           ].map((item) => (
 
@@ -2719,7 +2420,7 @@ export default function Home() {
               />
 
               <span className="text-base sm:text-lg lg:text-xl font-semibold break-all">
-                +91 7720010087
+                +91 7720020699
               </span>
 
             </div>
@@ -2765,7 +2466,7 @@ export default function Home() {
               />
 
               <span className="text-sm sm:text-base lg:text-lg leading-7">
-                Opp.Kate Square, Above Patanjali Store, Katepuram Chowk, Pimple Gurav,Pune- 411061
+                1st floor, balaji complex, Vinayak nagar, Pimple gurav, pune-411061
               </span>
 
             </div>
