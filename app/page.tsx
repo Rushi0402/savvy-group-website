@@ -1462,7 +1462,7 @@ export default function Home() {
               {inView && <CountUp end={7} duration={2.5} />}+
             </h3>
 
-            <p className="font-semibold mt-2">
+            <p className="text-[#D6AE45] font-semibold mt-2">
               States Covered
             </p>
 
@@ -1484,7 +1484,7 @@ export default function Home() {
               {inView && <CountUp end={100} duration={2.5} />}+
             </h3>
 
-            <p className="font-semibold mt-2">
+            <p className="text-[#D6AE45] font-semibold mt-2">
               Clients Served
             </p>
 
@@ -1513,7 +1513,7 @@ export default function Home() {
               +
             </h3>
 
-            <p className="font-semibold mt-2">
+            <p className="text-[#D6AE45] font-semibold mt-2">
               Workforce Managed
             </p>
 
@@ -1538,7 +1538,7 @@ export default function Home() {
               %
             </h3>
 
-            <p className="font-semibold mt-2">
+            <p className="text-[#D6AE45] font-semibold mt-2">
               Satisfaction
             </p>
 
@@ -1626,7 +1626,7 @@ export default function Home() {
 
           <div>
 
-            <h4 className="font-bold text-lg">
+            <h4 className=" text-slate-900 font-bold text-lg">
               Skilled Workforce
             </h4>
 
@@ -1648,7 +1648,7 @@ export default function Home() {
 
           <div>
 
-            <h4 className="font-bold text-lg">
+            <h4 className="text-slate-900 font-bold text-lg">
               Security Services
             </h4>
 
@@ -1670,7 +1670,7 @@ export default function Home() {
 
           <div>
 
-            <h4 className="font-bold text-lg">
+            <h4 className="text-slate-900 font-bold text-lg">
               Industrial Relations
             </h4>
 
@@ -1692,7 +1692,7 @@ export default function Home() {
 
           <div>
 
-            <h4 className="font-bold text-lg">
+            <h4 className="text-slate-900 font-bold text-lg">
               Business Support
             </h4>
 
@@ -2169,7 +2169,7 @@ export default function Home() {
                 value={formData.firstName}
                 onChange={handleChange}
                 placeholder="First Name"
-                className="w-full p-5 bg-white rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               <input
@@ -2178,7 +2178,7 @@ export default function Home() {
                 value={formData.lastName}
                 onChange={handleChange}
                 placeholder="Last Name"
-                className="w-full p-5 bg-white rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -2189,7 +2189,7 @@ export default function Home() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone"
-                className="w-full p-5 bg-white rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               <input
@@ -2198,7 +2198,7 @@ export default function Home() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="w-full p-5 bg-white rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-5 rounded-md shadow-md outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -2208,7 +2208,7 @@ export default function Home() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Message"
-              className="w-full p-5 bg-white rounded-md shadow-md outline-none resize-none focus:ring-2 focus:ring-orange-500"
+              className="w-full p-5 rounded-md shadow-md outline-none resize-none focus:ring-2 focus:ring-orange-500"
             />
 
             <div className="flex justify-center">
