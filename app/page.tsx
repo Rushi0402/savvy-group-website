@@ -26,8 +26,16 @@ import { HiOutlineMap } from "react-icons/hi";
 import { useContact } from "../context/ContactContext";
 import { submitContact } from "../lib/api";
 import { subscribeNewsletter } from "../lib/api";
-import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Settings,
+  Search,
+  ClipboardCheck,
+  UserRound,
+  BarChart3,
+  ArrowRight,
+} from "lucide-react";
 
 import {
   Users,
@@ -56,7 +64,7 @@ export default function Home() {
   const services = [
     {
       title: "Security Services",
-      subtitle: "Find Top Talent",
+      subtitle: "Vigilance. Discipline. Accountability.",
       description:
         "Trusted Security Solutions For Every Industry.",
       image:"/Hsecurity.png",
@@ -64,7 +72,7 @@ export default function Home() {
     },
     {
       title: "Housekeeping Services",
-      subtitle: "Clean - Safe - Hygienic",
+      subtitle: "Cleaner Facilities. Consistent Standards.",
       description:
         "Professional Housekeeping That Enhances Evey Workplace.",
       image:"/service4.png",
@@ -72,7 +80,7 @@ export default function Home() {
     },
     {
       title: "Integrated Facility Management",
-      subtitle: "Flagship Services",
+      subtitle: "Multiple Services. One Point of Coordination.",
       description:
         "Maintaining hygienic and productive workplace environments.",
       image:"/ifm-banner.png",
@@ -80,14 +88,14 @@ export default function Home() {
     },
     {
       title: "Hospitality Management",
-      subtitle: "Guest House Operations",
+      subtitle: "Comfortable Stays. Professionally Managed Operations.",
       description: "Supporting organizations through streamlined operations.",
       image:"/hospitality1.png",
       icon: Building2,
     },
     {
-      title: "Transportation Support Services",
-      subtitle: "Project Mobility",
+      title: "Project mobility",
+      subtitle: "Reliable Transportation Support for Project Operations.",
       description:
         "Providing dependable transportation solutions that support business growth.",
       image:"/transportation.png",
@@ -95,7 +103,7 @@ export default function Home() {
     },
     {
       title: "Manpower Services",
-      subtitle: "Professional Workforce Solutions",
+      subtitle: "The Right Workforce for the Right Requirement.",
       description:
         "Providing dependable manpower solutions that support business growth.",
       image:"/Service1.png",
@@ -163,6 +171,60 @@ export default function Home() {
   ];
 
   const [currentQuote, setCurrentQuote] = useState(0);
+
+  const aboutImages = [
+  {
+    src: "/about.png",
+    caption: "Experienced people. Reliable operations.",
+    subCaption: "Built on trust and performance.",
+  },
+  {
+    src: "/about-security.png",
+    caption: "Professional teams. Stronger protection.",
+    subCaption: "Security delivered with responsibility.",
+  },
+  {
+    src: "/about-workforce.png",
+    caption: "Skilled workforce. Seamless execution.",
+    subCaption: "People who keep operations moving.",
+  },
+];
+
+const approachImages = [
+  {
+    src: "/Service1.png",
+    caption: "Well-managed facilities.",
+    subCaption: "Better productivity. Stronger partnerships.",
+  },
+  {
+    src: "/service4.png",
+    caption: "Service excellence at every location.",
+    subCaption: "Every day. Every site.",
+  },
+  {
+    src: "/about-operations.png",
+    caption: "Reliable operations. Consistent results.",
+    subCaption: "Structured for your requirements.",
+  },
+];
+
+const [aboutImageIndex, setAboutImageIndex] = useState(0);
+const [approachImageIndex, setApproachImageIndex] = useState(0);
+
+useEffect(() => {
+  const aboutTimer = setInterval(() => {
+    setAboutImageIndex((prev) => (prev + 1) % aboutImages.length);
+  }, 5000);
+
+  const approachTimer = setInterval(() => {
+    setApproachImageIndex((prev) => (prev + 1) % approachImages.length);
+  }, 5000);
+
+  return () => {
+    clearInterval(aboutTimer);
+    clearInterval(approachTimer);
+  };
+}, []);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -308,7 +370,7 @@ export default function Home() {
                 </h1>
 
                 <p className=" sm:block text-[10px] lg:text-xs tracking-wide text-slate-500">
-                  Think Beyond Your Boundaries
+                  Integrated Business Support & Facility Solutions
                 </p>
               </div>
             </div>
@@ -457,7 +519,7 @@ export default function Home() {
         px-5
         sm:px-6
         lg:px-8
-        pb-12
+        pb-8
         bg-white
         "
       >
@@ -852,185 +914,1114 @@ export default function Home() {
         </Swiper>
       </section>
 
-      
-      {/* ABOUT US */}
-
-
+      {/* ================= ABOUT US ================= */}
       <section
   id="about"
-  className="py-16 sm:py-20 lg:py-28 px-5 sm:px-8 lg:px-16 bg-[#edf4f1]"
+  className="
+    w-full
+    overflow-hidden
+    bg-[#F8FBF9]
+    py-14
+    sm:py-16
+    md:py-20
+    lg:py-24
+    xl:py-28
+"
 >
-  <div className="max-w-7xl mx-auto">
+  <div
+    className="
+      w-full
+      max-w-7xl
+      mx-auto
+      px-4
+      min-[375px]:px-5
+      sm:px-6
+      md:px-8
+      lg:px-10
+      xl:px-12
+    "
+  >
 
-    {/* Section Tag */}
-    <div className="flex items-center gap-2 mb-6">
-      <div className="w-3 h-3 bg-green-600 rotate-45"></div>
+    {/* =====================================================
+                        HEADER
+    ====================================================== */}
 
-      <span className="uppercase tracking-widest text-xs sm:text-sm font-semibold text-slate-700">
-        About Us
-      </span>
+    <div
+      className="
+        w-full
+        max-w-4xl
+        mx-auto
+        text-center
+        mb-10
+        sm:mb-12
+        md:mb-14
+        lg:mb-16
+        xl:mb-20
+      "
+    >
+
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="
+          flex
+          items-center
+          justify-center
+          gap-3
+          sm:gap-4
+        "
+      >
+
+        <span
+          className="
+            hidden
+            xs:block
+            w-6
+            sm:w-10
+            lg:w-16
+            h-[2px]
+            bg-[#D6AE45]
+          "
+        />
+
+        <div className="flex items-center gap-2 sm:gap-3">
+
+          <span
+            className="
+              w-2.5
+              h-2.5
+              sm:w-3
+              sm:h-3
+              rotate-45
+              bg-[#006B54]
+              shrink-0
+            "
+          />
+
+          <span
+            className="
+              text-[#006B54]
+              font-bold
+              tracking-[3px]
+              sm:tracking-[5px]
+              text-xs
+              sm:text-sm
+              md:text-base
+              whitespace-nowrap
+            "
+          >
+            ABOUT US
+          </span>
+
+          <span
+            className="
+              w-2.5
+              h-2.5
+              sm:w-3
+              sm:h-3
+              rotate-45
+              bg-[#006B54]
+              shrink-0
+            "
+          />
+
+        </div>
+
+        <span
+          className="
+            hidden
+            xs:block
+            w-6
+            sm:w-10
+            lg:w-16
+            h-[2px]
+            bg-[#D6AE45]
+          "
+        />
+
+      </motion.div>
+
+
+      <motion.h2
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="
+          mt-5
+          sm:mt-6
+          text-[2rem]
+          min-[375px]:text-[2.2rem]
+          sm:text-4xl
+          md:text-5xl
+          lg:text-6xl
+          xl:text-[4rem]
+          font-black
+          leading-[1.1]
+          text-[#0B1730]
+        "
+      >
+        Integrated Solutions.
+
+        <span className="block text-[#006B54] mt-1 sm:mt-2">
+          On-Ground Execution.
+        </span>
+
+      </motion.h2>
+
+
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: 70 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="
+          h-1
+          bg-[#D6AE45]
+          mx-auto
+          mt-5
+          sm:mt-6
+          rounded-full
+        "
+      />
+
     </div>
 
-    {/* Heading */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mt-8 lg:mt-20">
 
-      {/* Left */}
-      <div>
+    {/* =====================================================
+                    ROW 1
+             IMAGE + WHO WE ARE
+    ====================================================== */}
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-slate-900 leading-tight text-center lg:text-left">
-          Empowering Businesses Through Expert Workforce Solutions
-        </h2>
+    <div
+      className="
+        grid
+        grid-cols-1
+        lg:grid-cols-2
+        gap-6
+        sm:gap-7
+        md:gap-8
+        lg:gap-10
+        items-stretch
+      "
+    >
 
-      </div>
+      {/* =================================================
+                          LEFT IMAGE
+      ================================================== */}
 
-      {/* Right */}
-      <div>
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="
+          relative
+          w-full
+          h-[300px]
+          min-[375px]:h-[320px]
+          sm:h-[400px]
+          md:h-[450px]
+          lg:h-[650px]
+          overflow-hidden
+          rounded-[22px]
+          sm:rounded-[26px]
+          lg:rounded-[30px]
+          shadow-xl
+        "
+      >
 
-        <div className="w-20 h-1 bg-green-600 rounded-full mb-6 lg:mb-8 mx-auto lg:mx-0"></div>
+        <AnimatePresence mode="wait">
 
-        <p
-          className="text-base sm:text-lg lg:text-xl text-slate-700 leading-8 lg:leading-10 text-justify"
-          style={{ fontFamily: "Book Antiqua" }}
-        >
-          Since 2014, Savvy Group has been delivering comprehensive workforce and facility 
-          management solutions to leading organizations across India. With expertise spanning 
-          security services, housekeeping, manpower, guest house management, catering, transportation, 
-          and integrated facility management, we help organizations streamline their operations with reliability 
-          and professionalism. Backed by experienced teams, strong compliance practices, and a client-first 
-          approach, we provide customized solutions that enhance productivity, reduce operational challenges, 
-          and support sustainable business growth.
-        </p>
+          <motion.img
+            key={aboutImageIndex}
+            src={aboutImages[aboutImageIndex].src}
+            alt="Savvy Group workforce"
+            initial={{
+              opacity: 0,
+              scale: 1.05,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 1.02,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+            className="
+              absolute
+              inset-0
+              w-full
+              h-full
+              object-cover
+            "
+          />
 
-        <button
+        </AnimatePresence>
+
+
+        {/* Gradient */}
+
+        <div
           className="
-            mt-8
-            w-full
-            sm:w-auto
-            bg-[#D6AE45]
-            hover:bg-[#c39c35]
-            text-black
-            px-8
-            py-4
-            rounded-xl
-            font-semibold
-            tracking-wide
-            shadow-lg
-            transition-all
-            duration-300
+            absolute
+            inset-x-0
+            bottom-0
+            h-[45%]
+            bg-gradient-to-t
+            from-black/75
+            via-black/40
+            to-transparent
+            pointer-events-none
+          "
+        />
+
+
+        {/* Caption */}
+
+        <div
+          className="
+            absolute
+            left-4
+            right-4
+            bottom-4
+            sm:left-6
+            sm:right-6
+            sm:bottom-6
+            lg:left-8
+            lg:right-8
+            lg:bottom-8
+            text-white
           "
         >
-          Contact Now →
-        </button>
 
-      </div>
+          <AnimatePresence mode="wait">
 
-    </div>
+            <motion.div
+              key={aboutImageIndex}
+              initial={{
+                opacity: 0,
+                y: 12,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: -8,
+              }}
+              transition={{
+                duration: 0.5,
+              }}
+            >
 
-    {/* Bottom Content */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-14 lg:mt-20 items-center">
+              <p
+                className="
+                  text-lg
+                  min-[375px]:text-xl
+                  sm:text-2xl
+                  lg:text-3xl
+                  font-semibold
+                  leading-tight
+                "
+              >
+                {aboutImages[aboutImageIndex].caption}
+              </p>
 
-      {/* Left */}
-      <div className="space-y-10">
+              <p
+                className="
+                  mt-2
+                  text-[#D6AE45]
+                  text-sm
+                  sm:text-base
+                  lg:text-lg
+                  font-semibold
+                "
+              >
+                {aboutImages[aboutImageIndex].subCaption}
+              </p>
 
-        {/* Item 1 */}
-        <div className="flex flex-col sm:flex-row gap-5 sm:gap-6">
+            </motion.div>
 
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-700 text-white flex items-center justify-center text-2xl sm:text-3xl font-bold shrink-0 mx-auto sm:mx-0">
+          </AnimatePresence>
+
+        </div>
+
+      </motion.div>
+
+
+      {/* =================================================
+                       WHO WE ARE
+      ================================================== */}
+
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="
+          w-full
+          h-auto
+          lg:h-[650px]
+          bg-white
+          rounded-[22px]
+          sm:rounded-[26px]
+          lg:rounded-[30px]
+          border
+          border-gray-100
+          shadow-xl
+          p-6
+          min-[375px]:p-7
+          sm:p-8
+          md:p-9
+          lg:p-10
+          xl:p-12
+          flex
+          flex-col
+          justify-center
+          overflow-hidden
+        "
+      >
+
+        {/* Number */}
+
+        <div className="flex items-center gap-3 sm:gap-4">
+
+          <div
+            className="
+              w-12
+              h-12
+              sm:w-14
+              sm:h-14
+              rounded-xl
+              bg-[#006B54]
+              text-white
+              flex
+              items-center
+              justify-center
+              text-lg
+              sm:text-xl
+              font-bold
+              shrink-0
+            "
+          >
             01
           </div>
 
-          <div className="text-center sm:text-left">
+          <div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
-              Industry Expertise
-            </h3>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              Experienced professionals with deep expertise in Human Resources, Industrial Relations, and Operations Management across multiple industries.
+            <p
+              className="
+                text-[#006B54]
+                font-bold
+                tracking-[2px]
+                text-xs
+                sm:text-sm
+              "
+            >
+              WHO WE ARE
             </p>
+
+            <div
+              className="
+                w-16
+                sm:w-20
+                h-[2px]
+                bg-[#D6AE45]
+                mt-2
+              "
+            />
 
           </div>
 
         </div>
 
-        <hr className="border-slate-300" />
+          <br className="hidden sm:block" />
+        
 
-        {/* Item 2 */}
-        <div className="flex flex-col sm:flex-row gap-5 sm:gap-6">
+        <p
+          className="
+            text-sm
+              sm:text-base
+              leading-6
+              sm:leading-7
+              text-slate-600
+          "
+        >
+          Savvy Group is a professionally managed multi-service
+          organisation delivering security, facility management,
+          workforce, hospitality, housekeeping, project mobility
+          and operational support services.
+        </p>
 
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-700 text-white flex items-center justify-center text-2xl sm:text-3xl font-bold shrink-0 mx-auto sm:mx-0">
+
+        {/* Feature 1 */}
+
+        <div
+          className="
+            mt-2
+            sm:mt-7
+            pt-5
+            sm:pt-6
+            border-t
+            border-gray-200
+            flex
+            items-start
+            gap-3
+            sm:gap-4
+          "
+        >
+
+          <div
+            className="
+              shrink-0
+              w-10
+              h-10
+              sm:w-12
+              sm:h-12
+              rounded-xl
+              bg-[#E8F4EF]
+              text-[#006B54]
+              flex
+              items-center
+              justify-center
+            "
+          >
+            <Users className="w-5 h-5 sm:w-6 sm:h-6" />
+          </div>
+
+          <p
+            className="
+              text-sm
+              sm:text-base
+              leading-6
+              sm:leading-7
+              text-slate-600
+            "
+          >
+            Since 2014, we support organisations with trained
+            manpower, structured supervision and responsive
+            coordination.
+          </p>
+
+        </div>
+
+
+        {/* Feature 2 */}
+
+        <div
+          className="
+            mt-4
+            sm:mt-5
+            pt-4
+            sm:pt-5
+            border-t
+            border-gray-200
+            flex
+            items-start
+            gap-3
+            sm:gap-4
+          "
+        >
+
+          <div
+            className="
+              shrink-0
+              w-10
+              h-10
+              sm:w-12
+              sm:h-12
+              rounded-xl
+              bg-[#E8F4EF]
+              text-[#006B54]
+              flex
+              items-center
+              justify-center
+            "
+          >
+            <Settings className="w-5 h-5 sm:w-6 sm:h-6" />
+          </div>
+
+          <p
+            className="
+              text-sm
+              sm:text-base
+              leading-6
+              sm:leading-7
+              text-slate-600
+            "
+          >
+            Our services are structured around site requirements,
+            manpower needs, operating conditions and expected
+            service standards.
+          </p>
+
+        </div>
+
+
+        {/* Button */}
+
+        <button
+          onClick={openContact}
+          className="
+            mt-6
+            sm:mt-7
+            self-start
+            inline-flex
+            items-center
+            justify-center
+            gap-2
+            sm:gap-3
+            bg-[#D6AE45]
+            hover:bg-[#c79d33]
+            text-black
+            px-6
+            sm:px-7
+            py-3.5
+            sm:py-4
+            rounded-xl
+            font-bold
+            text-sm
+            sm:text-base
+            shadow-md
+            hover:shadow-lg
+            transition-all
+            duration-300
+            active:scale-95
+          "
+        >
+          Learn More
+
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+
+        </button>
+
+      </motion.div>
+
+    </div>
+
+
+    {/* =====================================================
+                    ROW 2
+              APPROACH + IMAGE
+    ====================================================== */}
+
+    <div
+      className="
+        grid
+        grid-cols-1
+        lg:grid-cols-2
+        gap-6
+        sm:gap-7
+        md:gap-8
+        lg:gap-10
+        items-stretch
+        mt-6
+        sm:mt-8
+        lg:mt-10
+      "
+    >
+
+      {/* =================================================
+                         OUR APPROACH
+      ================================================== */}
+
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="
+          w-full
+          h-auto
+          lg:h-[650px]
+          bg-white
+          rounded-[22px]
+          sm:rounded-[26px]
+          lg:rounded-[30px]
+          border
+          border-gray-100
+          shadow-xl
+          p-6
+          min-[375px]:p-7
+          sm:p-8
+          md:p-9
+          lg:p-10
+          xl:p-12
+          flex
+          flex-col
+          justify-center
+          overflow-hidden
+        "
+      >
+
+        <div className="flex items-center gap-3 sm:gap-4">
+
+          <div
+            className="
+              w-12
+              h-12
+              sm:w-14
+              sm:h-14
+              rounded-xl
+              bg-[#006B54]
+              text-white
+              flex
+              items-center
+              justify-center
+              text-lg
+              sm:text-xl
+              font-bold
+              shrink-0
+            "
+          >
             02
           </div>
 
-          <div className="text-center sm:text-left">
+          <div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
-              Reliable Workforce Solutions
-            </h3>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              Delivering dependable manpower, security, housekeeping, and business support solutions tailored to our clients' requirements.
+            <p
+              className="
+                text-[#006B54]
+                font-bold
+                tracking-[2px]
+                text-xs
+                sm:text-sm
+              "
+            >
+              OUR APPROACH
             </p>
+
+            <div
+              className="
+                w-16
+                sm:w-20
+                h-[2px]
+                bg-[#D6AE45]
+                mt-2
+              "
+            />
 
           </div>
 
         </div>
 
-        <hr className="border-slate-300" />
 
-        {/* Item 3 */}
-        <div className="flex flex-col sm:flex-row gap-5 sm:gap-6">
+        <h3
+          className="
+            mt-6
+            sm:mt-7
+            lg:mt-8
+            text-[1.75rem]
+            min-[375px]:text-[1.9rem]
+            sm:text-3xl
+            md:text-4xl
+            lg:text-[2.7rem]
+            font-black
+            leading-[1.15]
+            text-[#0B1730]
+          "
+        >
+          A Structured Approach.
+          <br className="hidden sm:block" />
+          <span className="sm:hidden"> </span>
+          
+        </h3>
 
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-700 text-white flex items-center justify-center text-2xl sm:text-3xl font-bold shrink-0 mx-auto sm:mx-0">
-            03
-          </div>
 
-          <div className="text-center sm:text-left">
+       {/* =====================================================
+                    PROCESS
+===================================================== */}
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
-              Long-Term Partnership
-            </h3>
+<div className="mt-7 sm:mt-8 space-y-7">
 
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              We help organizations improve workforce performance,
-              operational efficiency and achieve sustainable business
-              growth.
-            </p>
+  {/* ================= ROW 1 ================= */}
 
-          </div>
+  <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-start">
 
-        </div>
+    {/* Understand */}
 
+    <div className="flex flex-col items-center text-center">
+
+      <div
+        className="
+          w-11 h-11
+          sm:w-14 sm:h-14
+          rounded-full
+          bg-[#006B54]
+          text-white
+          flex items-center justify-center
+          shadow-md
+        "
+      >
+        <Search className="w-5 h-5 sm:w-6 sm:h-6" />
       </div>
 
-      {/* Right Image */}
-      <div className="relative overflow-hidden rounded-[25px] lg:rounded-[40px]">
+      <p className="mt-2 sm:mt-3 text-[11px] sm:text-sm font-semibold text-slate-700">
+        Understand
+      </p>
 
-        <img
-          src="/about.png"
-          alt="Savvy Group Team"
-          className="w-full h-[350px] sm:h-[450px] lg:h-full object-cover rounded-[25px] lg:rounded-[40px]"
+    </div>
+
+
+    {/* Arrow */}
+
+    <div className="flex items-center justify-center pt-4 sm:pt-5">
+      <span className="text-[#D6AE45] text-lg sm:text-xl font-bold">
+        →
+      </span>
+    </div>
+
+
+    {/* Plan */}
+
+    <div className="flex flex-col items-center text-center">
+
+      <div
+        className="
+          w-11 h-11
+          sm:w-14 sm:h-14
+          rounded-full
+          bg-[#006B54]
+          text-white
+          flex items-center justify-center
+          shadow-md
+        "
+      >
+        <ClipboardCheck className="w-5 h-5 sm:w-6 sm:h-6" />
+      </div>
+
+      <p className="mt-2 sm:mt-3 text-[11px] sm:text-sm font-semibold text-slate-700">
+        Plan
+      </p>
+
+    </div>
+
+
+    {/* Arrow */}
+
+    <div className="flex items-center justify-center pt-4 sm:pt-5">
+      <span className="text-[#D6AE45] text-lg sm:text-xl font-bold">
+        →
+      </span>
+    </div>
+
+
+    {/* Mobilise */}
+
+    <div className="flex flex-col items-center text-center">
+
+      <div
+        className="
+          w-11 h-11
+          sm:w-14 sm:h-14
+          rounded-full
+          bg-[#006B54]
+          text-white
+          flex items-center justify-center
+          shadow-md
+        "
+      >
+        <UserRound className="w-5 h-5 sm:w-6 sm:h-6" />
+      </div>
+
+      <p className="mt-2 sm:mt-3 text-[11px] sm:text-sm font-semibold text-slate-700">
+        Mobilise
+      </p>
+
+    </div>
+
+  </div>
+
+
+  {/* ================= ROW 2 ================= */}
+
+  <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-start">
+
+    {/* Manage */}
+
+    <div className="flex flex-col items-center text-center">
+
+      <div
+        className="
+          w-11 h-11
+          sm:w-14 sm:h-14
+          rounded-full
+          bg-[#006B54]
+          text-white
+          flex items-center justify-center
+          shadow-md
+        "
+      >
+        <Settings className="w-5 h-5 sm:w-6 sm:h-6" />
+      </div>
+
+      <p className="mt-2 sm:mt-3 text-[11px] sm:text-sm font-semibold text-slate-700">
+        Manage
+      </p>
+
+    </div>
+
+
+    {/* Arrow */}
+
+    <div className="flex items-center justify-center pt-4 sm:pt-5">
+      <span className="text-[#D6AE45] text-lg sm:text-xl font-bold">
+        →
+      </span>
+    </div>
+
+
+    {/* Monitor */}
+
+    <div className="flex flex-col items-center text-center">
+
+      <div
+        className="
+          w-11 h-11
+          sm:w-14 sm:h-14
+          rounded-full
+          bg-[#006B54]
+          text-white
+          flex items-center justify-center
+          shadow-md
+        "
+      >
+        <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6" />
+      </div>
+
+      <p className="mt-2 sm:mt-3 text-[11px] sm:text-sm font-semibold text-slate-700">
+        Monitor
+      </p>
+
+    </div>
+
+
+    {/* Arrow */}
+
+    <div className="flex items-center justify-center pt-4 sm:pt-5">
+      <span className="text-[#D6AE45] text-lg sm:text-xl font-bold">
+        →
+      </span>
+    </div>
+
+
+    {/* Improve */}
+
+    <div className="flex flex-col items-center text-center">
+
+      <div
+        className="
+          w-11 h-11
+          sm:w-14 sm:h-14
+          rounded-full
+          bg-[#006B54]
+          text-white
+          flex items-center justify-center
+          shadow-md
+        "
+      >
+        <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
+      </div>
+
+      <p className="mt-2 sm:mt-3 text-[11px] sm:text-sm font-semibold text-slate-700">
+        Improve
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{/* =====================================================
+                    DESCRIPTION
+===================================================== */}
+
+<div
+  className="
+    mt-7
+    sm:mt-8
+    pt-5
+    sm:pt-6
+    border-t
+    border-gray-200
+  "
+>
+  <p
+    className="
+      text-sm
+      sm:text-base
+      lg:text-lg
+      leading-7
+      sm:leading-8
+      text-slate-600
+    "
+  >
+    We combine experience, compliance and responsive
+    execution to deliver consistent and reliable
+    service outcomes.
+  </p>
+</div>
+
+      </motion.div>
+
+
+      {/* =================================================
+                          RIGHT IMAGE
+      ================================================== */}
+
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="
+          relative
+          w-full
+          h-[300px]
+          min-[375px]:h-[320px]
+          sm:h-[400px]
+          md:h-[450px]
+          lg:h-[650px]
+          overflow-hidden
+          rounded-[22px]
+          sm:rounded-[26px]
+          lg:rounded-[30px]
+          shadow-xl
+        "
+      >
+
+        <AnimatePresence mode="wait">
+
+          <motion.img
+            key={approachImageIndex}
+            src={approachImages[approachImageIndex].src}
+            alt="Savvy Group operations"
+            initial={{
+              opacity: 0,
+              scale: 1.05,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 1.02,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+            className="
+              absolute
+              inset-0
+              w-full
+              h-full
+              object-cover
+            "
+          />
+
+        </AnimatePresence>
+
+
+        {/* Gradient */}
+
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-[45%]
+            bg-gradient-to-t
+            from-black/75
+            via-black/40
+            to-transparent
+            pointer-events-none
+          "
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-[25px] lg:rounded-[40px]" />
 
-        {/* Quote */}
-        <div className="absolute bottom-4 left-4 right-4 sm:left-8 sm:right-8 bg-black/80 backdrop-blur-md text-white py-4 px-5 rounded-2xl">
+        {/* Caption */}
 
-          <p
-            className="text-sm sm:text-base lg:text-lg italic text-center leading-7"
-            style={{ fontFamily: "Book Antiqua" }}
-          >
-            {quotes[currentQuote]}
-          </p>
+        <div
+          className="
+            absolute
+            left-4
+            right-4
+            bottom-4
+            sm:left-6
+            sm:right-6
+            sm:bottom-6
+            lg:left-8
+            lg:right-8
+            lg:bottom-8
+            text-white
+          "
+        >
 
-          <p className="text-center mt-3 text-green-300 font-semibold text-sm sm:text-base">
-            — Savvy Group
-          </p>
+          <AnimatePresence mode="wait">
+
+            <motion.div
+              key={approachImageIndex}
+              initial={{
+                opacity: 0,
+                y: 12,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: -8,
+              }}
+              transition={{
+                duration: 0.5,
+              }}
+            >
+
+              <p
+                className="
+                  text-lg
+                  min-[375px]:text-xl
+                  sm:text-2xl
+                  lg:text-3xl
+                  font-semibold
+                  leading-tight
+                "
+              >
+                {approachImages[approachImageIndex].caption}
+              </p>
+
+              <p
+                className="
+                  mt-2
+                  text-[#D6AE45]
+                  text-sm
+                  sm:text-base
+                  lg:text-lg
+                  font-semibold
+                "
+              >
+                {approachImages[approachImageIndex].subCaption}
+              </p>
+
+            </motion.div>
+
+          </AnimatePresence>
 
         </div>
 
-      </div>
+      </motion.div>
 
     </div>
 
@@ -1170,9 +2161,85 @@ export default function Home() {
     </div>
 
   </div>
+
+{/* VISION AND MISSION */}
+
+      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+    {/* Heading */}
+    <div className="text-center mb-12 lg:mb-16">
+
+      <span className="text-[#f7931e] uppercase tracking-[3px] sm:tracking-[4px] font-semibold text-xs sm:text-sm">
+        Our Purpose
+      </span>
+
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f172a] mt-4">
+        Vision & Mission
+      </h2>
+
+      <p className="text-gray-500 text-base sm:text-lg mt-4 max-w-3xl mx-auto leading-7 sm:leading-8">
+        Driving growth through professional workforce solutions, security
+        services, housekeeping, industrial relations and business support
+        across India.
+      </p>
+
+    </div>
+
+    {/* Cards */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      {/* Vision Card */}
+      <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-100 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+
+        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-orange-100 flex items-center justify-center mb-6 text-2xl sm:text-3xl">
+          👁️
+        </div>
+
+        <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] mb-4">
+          Our Vision
+        </h3>
+
+        <p className="text-gray-600 text-sm sm:text-base leading-7 sm:leading-8 text-justify">
+          To be India's most trusted partner for integrated facility management and workforce solutions, 
+          delivering excellence through security services, housekeeping, hospitality, manpower outsourcing, 
+          transportation, and business support. We aspire to build long-term client relationships by providing 
+          reliable, innovative, and sustainable solutions that enhance operational efficiency, create safer workplaces, 
+          and contribute to the growth of businesses across India.
+        </p>
+
+      </div>
+
+      {/* Mission Card */}
+      <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-100 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+
+        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-orange-100 flex items-center justify-center mb-6 text-2xl sm:text-3xl">
+          🎯
+        </div>
+
+        <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] mb-4">
+          Our Mission
+        </h3>
+
+        <p className="text-gray-600 text-sm sm:text-base leading-7 sm:leading-8 text-justify">
+          Our mission is to deliver reliable, customized, and high-quality integrated facility 
+          management and workforce solutions that enable businesses to focus on their core operations. 
+          Through skilled professionals, strong statutory compliance, continuous training, operational 
+          excellence, and a customer-first approach, we are committed to providing security services, 
+          housekeeping, guest house management, transportation, catering, manpower outsourcing, and business 
+          support services with the highest standards of quality, safety, and professionalism.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 </section>
       {/* WHY CHOOSE US */}
-<section id="why-us" className="py-16 sm:py-20 lg:py-24 bg-[#F8FAF9]">
+<section id="why-us" className="pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 bg-[#F8FAF9]">
   <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
     {/* Heading */}
@@ -1866,80 +2933,7 @@ export default function Home() {
 </section>
 
 
-{/* VISION AND MISSION */}
 
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
-  <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-
-    {/* Heading */}
-    <div className="text-center mb-12 lg:mb-16">
-
-      <span className="text-[#f7931e] uppercase tracking-[3px] sm:tracking-[4px] font-semibold text-xs sm:text-sm">
-        Our Purpose
-      </span>
-
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f172a] mt-4">
-        Vision & Mission
-      </h2>
-
-      <p className="text-gray-500 text-base sm:text-lg mt-4 max-w-3xl mx-auto leading-7 sm:leading-8">
-        Driving growth through professional workforce solutions, security
-        services, housekeeping, industrial relations and business support
-        across India.
-      </p>
-
-    </div>
-
-    {/* Cards */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-      {/* Vision Card */}
-      <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-100 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-
-        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-orange-100 flex items-center justify-center mb-6 text-2xl sm:text-3xl">
-          👁️
-        </div>
-
-        <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] mb-4">
-          Our Vision
-        </h3>
-
-        <p className="text-gray-600 text-sm sm:text-base leading-7 sm:leading-8 text-justify">
-          To be India's most trusted partner for integrated facility management and workforce solutions, 
-          delivering excellence through security services, housekeeping, hospitality, manpower outsourcing, 
-          transportation, and business support. We aspire to build long-term client relationships by providing 
-          reliable, innovative, and sustainable solutions that enhance operational efficiency, create safer workplaces, 
-          and contribute to the growth of businesses across India.
-        </p>
-
-      </div>
-
-      {/* Mission Card */}
-      <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-100 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-
-        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-orange-100 flex items-center justify-center mb-6 text-2xl sm:text-3xl">
-          🎯
-        </div>
-
-        <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] mb-4">
-          Our Mission
-        </h3>
-
-        <p className="text-gray-600 text-sm sm:text-base leading-7 sm:leading-8 text-justify">
-          Our mission is to deliver reliable, customized, and high-quality integrated facility 
-          management and workforce solutions that enable businesses to focus on their core operations. 
-          Through skilled professionals, strong statutory compliance, continuous training, operational 
-          excellence, and a customer-first approach, we are committed to providing security services, 
-          housekeeping, guest house management, transportation, catering, manpower outsourcing, and business 
-          support services with the highest standards of quality, safety, and professionalism.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
 
 
 
@@ -2257,17 +3251,20 @@ export default function Home() {
 
       <div>
 
+        
+
+        <p className="text-slate-300 text-sm sm:text-base leading-7 sm:leading-8 mb-8 text-justify">
+          Whether the requirement is security, workforce deployment, 
+          facility management, guest house operations, catering, 
+          housekeeping, project mobility or CCTV surveillance, 
+          Savvy Group provides solutions structured around actual operating requirements.
+        </p>
+
         <img
           src="/Logo.png"
           alt="Savvy Group"
           className="h-16 sm:h-20 mb-6"
         />
-
-        <p className="text-slate-300 text-sm sm:text-base leading-7 sm:leading-8 mb-8">
-          At the heart of our philosophy lies the belief that a thriving
-          workplace is rooted in trust, professionalism, commitment and
-          continuous growth.
-        </p>
 
         {/* Social */}
 
@@ -2422,8 +3419,25 @@ export default function Home() {
               <span className="text-base sm:text-lg lg:text-xl font-semibold break-all">
                 +91 7720020699
               </span>
+              
+              
 
             </div>
+            <div className="flex items-center gap-3">
+
+              <Phone
+                size={18}
+                className="text-[#D6AE45] shrink-0"
+              />
+
+              <span className="text-base sm:text-lg lg:text-xl font-semibold break-all">
+                +91 20 4109 8877
+              </span>
+              
+              
+
+            </div>
+            
 
           </div>
 

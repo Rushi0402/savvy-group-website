@@ -226,19 +226,12 @@ xl:text-6xl font-black mt-6 text-slate-900"
 
         </h3>
 
-        <p className="mt-8 text-lg leading-9 text-slate-600">
+        <p className="mt-8 text-lg leading-9 text-slate-600 text-justify">
 
-          Savvy Group delivers highly trained,
-          disciplined and professional security
-          personnel for corporate offices,
-          industrial facilities, hospitals,
-          educational institutions,
-          residential communities and
-          commercial establishments.
-
-          Our security professionals ensure
-          safety, compliance, risk prevention
-          and uninterrupted business operations.
+          Savvy Group provides professionally managed security 
+          services for industrial establishments, corporate premises, 
+          residential developments, hospitals, infrastructure projects, 
+          renewable-energy sites and other operating environments.
 
         </p>
 
@@ -247,16 +240,16 @@ xl:text-6xl font-black mt-6 text-slate-900"
         <div className="grid md:grid-cols-2 gap-5 mt-10">
 
           {[
-            "Corporate Parks",
-            "Shopping Malls",
-            "Industrial Plants",
-            "Residential Societies",
-            "Hospitals",
-            "Educational Institutes",
-            "VIP Protection",
-            "Event Security",
-            "Emergency Response",
-            "Fire Safety Drills",
+            "Manned Guarding Services",
+            "Security Guards",
+            "Security Supervisors",
+            "Ex-Servicemen Deployment",
+            "Access Control & Visitor Management",
+            "Gate & Material Movement Control",
+            "Patrolling & Perimeter Monitoring",
+            "Emergency Response Support",
+            "Bouncer Services for Events",
+            "Fire & Safety Support",
           ].map((item)=>(
 
             <div
@@ -359,15 +352,14 @@ xl:text-6xl font-black mt-6 text-slate-900"
 
         </h3>
 
-        <p className="mt-8 text-lg leading-9 text-slate-600">
+        <p className="mt-8 text-lg leading-9 text-slate-600 text-justify">
 
-          Savvy Group provides trained housekeeping
-          professionals to maintain clean, hygienic,
-          organized and productive environments.
+          Savvy Group provides professionally managed housekeeping and facility-support 
+          manpower for corporate offices, hospitals, industrial facilities, project locations, 
+          residential developments and commercial establishments.
+          Our housekeeping programmes are structured around defined cleaning schedules, 
+          trained personnel, supervisory checks and hygiene standards suited to each facility.
 
-          Our teams follow standard operating procedures,
-          modern cleaning practices and quality audits
-          to ensure superior facility maintenance.
 
         </p>
 
@@ -376,16 +368,16 @@ xl:text-6xl font-black mt-6 text-slate-900"
         <div className="grid sm:grid-cols-2 gap-5 mt-10">
 
           {[
-            "Daily Cleaning Programs",
-            "Deep Cleaning",
-            "Waste Disposal",
-            "Surface Disinfection",
-            "Floor Maintenance",
-            "Washroom Hygiene",
-            "Society Maintenance",
-            "Hospital Cleaning",
-            "Mall Housekeeping",
-            "Facility Support",
+            "Daily Housekeeping Operations",
+            "Office & Corporate Housekeeping",
+            "Deep Cleaning Support",
+            "Washroom Cleaning & Hygiene Management",
+            "Floor & Surface Cleaning",
+            "Waste Collection & Disposal Coordination",
+            "Pantry Support Services",
+            "Trained Housekeeping Personnel",
+            "Housekeeping Supervisors",
+            "Site-Specific Cleaning Schedules",
           ].map((item) => (
 
             <motion.div
@@ -521,18 +513,13 @@ xl:text-6xl font-black text-slate-900"
         </span>
       </motion.h2>
 
-      <p className="mt-10 text-xl leading-9 text-slate-600">
+      <p className="mt-10 text-xl leading-9 text-slate-600 text-justify">
 
-        Savvy Group delivers complete Integrated Facility
-        Management solutions by combining manpower,
-        housekeeping, maintenance, security, hospitality,
-        administration and operations under one management
-        system.
+        Savvy Group provides skilled, semi-skilled and unskilled manpower across 
+        industrial, corporate, healthcare, hospitality, infrastructure and project environments.
+        Our manpower solutions are structured around client requirements, employee documentation, 
+        deployment planning, attendance management and statutory compliance.
 
-        Our IFM solutions improve operational efficiency,
-        reduce costs and allow businesses to focus entirely
-        on their core operations while we manage everything
-        else.
 
       </p>
 
@@ -568,16 +555,17 @@ xl:text-6xl font-black text-slate-900"
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:p-8 mt-16">
 
         {[
-          "Soft Services Management",
-          "Hard Services Management",
-          "Facility Operations",
-          "Utility Management",
-          "Vendor Coordination",
-          "Asset Maintenance",
-          "Administrative Support",
-          "Workforce Management",
-          "Compliance Monitoring",
-          "Site Operations Management",
+          "Recruitment & Sourcing",
+          "Employee Documentation",
+          "Deployment Coordination",
+          "Attendance Management",
+          "Payroll Support",
+          "PF & ESIC Compliance",
+          "Labour Compliance Support",
+          "Replacement Coordination",
+          "Site Supervision",
+          
+
         ].map((item)=>(
 
           <motion.div
@@ -680,12 +668,11 @@ xl:text-6xl font-black text-slate-900"
 
       </h3>
 
-      <p className="mt-8 text-xl max-w-3xl mx-auto leading-9">
+      <p className="mt-8 text-xl max-w-3xl mx-auto leading-9 text-justify">
 
-        From manpower and housekeeping to security,
-        hospitality, maintenance and administration,
-        Savvy Group manages everything through a
-        single integrated management system.
+        Savvy Group provides end-to-end hospitality and accommodation-management 
+        services for corporate teams, renewable-energy projects, infrastructure companies, 
+        construction organisations and remote project locations.
 
       </p>
 
@@ -784,15 +771,16 @@ xl:text-6xl font-black text-slate-900"
 
           {[
             "Guest House Management",
-            "Front Office Operations",
-            "Room Management",
-            "Housekeeping",
-            "Laundry Services",
-            "Food & Catering",
-            "Utility Management",
-            "Security & Safety",
-            "Staff Deployment",
-            "Vendor Coordination",
+            "Catering & Food Services",
+            "Site Facility Support",
+            "Property Identification & Coordination",
+            "Guest House Setup",
+            "Breakfast, Lunch & Dinner Operations",
+            "Corporate & Project-Site Catering",
+            "Drinking Water",
+            "Tea & Refreshments",
+            "Housekeeping Material",
+
           ].map((item) => (
 
             <motion.div
@@ -890,11 +878,13 @@ xl:text-6xl font-black mt-6 text-slate-900"
         Project Vechicle Services
       </motion.h2>
 
-      <p className="mt-8 text-lg leading-9 text-slate-600">
+      <p className="mt-8 text-lg leading-9 text-slate-600 text-justify">
 
-        Savvy Group provides reliable project vehicle solutions for solar, wind, 
-        infrastructure, and industrial projects. Through a single point of contact, 
-        we manage complete vehicle deployment and coordination, simplifying transportation for our clients.
+        Savvy Group provides vehicle deployment and transportation coordination for industrial projects, 
+        renewable-energy sites, infrastructure companies and corporate operations through structured mobility support.
+        Our project mobility services are particularly suited to organisations operating across remote or multiple 
+        project locations where dependable vehicle availability and local coordination are essential.
+
 
       </p>
 
@@ -1860,27 +1850,19 @@ xl:text-6xl font-black mt-6 text-slate-900"
       {[
         {
           icon:"🏭",
-          title:"Manufacturing",
+          title:"Manufacturing & Industrial",
         },
         {
           icon:"🏥",
           title:"Healthcare",
         },
         {
-          icon:"⚡",
-          title:"Power & Energy",
-        },
-        {
           icon:"🏗",
-          title:"Construction",
+          title:"Infrastructure & Construction",
         },
         {
           icon:"🏢",
-          title:"Corporate Offices",
-        },
-        {
-          icon:"🏬",
-          title:"Commercial Complexes",
+          title:"Corporate Commercial",
         },
         {
           icon:"🚚",
@@ -1888,23 +1870,15 @@ xl:text-6xl font-black mt-6 text-slate-900"
         },
         {
           icon:"🏘",
-          title:"Residential Societies",
+          title:"Real Estate & Residential",
         },
         {
           icon:"🎓",
           title:"Educational Institutions",
         },
         {
-          icon:"🛒",
-          title:"Retail & Shopping Malls",
-        },
-        {
           icon:"🌿",
-          title:"Renewable Energy",
-        },
-        {
-          icon:"🏨",
-          title:"Hospitality Projects",
+          title:"Renewable Energy & Power",
         },
 
       ].map((industry)=>(
@@ -2020,11 +1994,11 @@ xl:text-6xl font-black mt-6 text-slate-900"
         </span>
       </motion.h2>
 
-      <p className="mt-8 text-lg leading-9 text-slate-600">
+      <p className="mt-8 text-lg leading-9 text-slate-600 text-justify">
 
-        Since 2014, we have been delivering dependable
-        workforce and facility management solutions with
-        professionalism, quality and long-term commitment.
+        Savvy Group combines workforce capability with practical 
+        on-ground execution, allowing organisations to manage multiple 
+        essential services through one accountable partner.
 
       </p>
 
@@ -2043,15 +2017,14 @@ xl:text-6xl font-black mt-6 text-slate-900"
         }}
         className="bg-white rounded-[30px] shadow-lg p-10 border hover:border-[#D6AE45] transition-all"
       >
-        <div className="text-6xl">🏆</div>
+        <div className="text-6xl">🧰</div>
 
         <h3 className="mt-8 text-2xl font-bold">
-          10+ Years Experience
+          MULTI-SERVICE CAPABILITY
         </h3>
 
-        <p className="mt-5 leading-8 text-slate-600">
-          A decade of experience delivering workforce,
-          security and facility management services.
+        <p className="mt-5 leading-8 text-slate-600 text-justify">
+          Security, manpower, housekeeping, hospitality, facility support and mobility services under one group.
         </p>
       </motion.div>
 
@@ -2061,15 +2034,14 @@ xl:text-6xl font-black mt-6 text-slate-900"
         whileHover={{ y: -10, scale: 1.03 }}
         className="bg-white rounded-[30px] shadow-lg p-10 border hover:border-[#D6AE45] transition-all"
       >
-        <div className="text-6xl">👥</div>
+        <div className="text-6xl">🪧 </div>
 
         <h3 className="mt-8 text-2xl font-bold">
-          Professional Workforce
+          MULTI-STATE MOBILISATION
         </h3>
 
-        <p className="mt-5 leading-8 text-slate-600">
-          Skilled, semi-skilled and administrative
-          professionals deployed across India.
+        <p className="mt-5 leading-8 text-slate-600 text-justify">
+          Ability to establish and manage operations across different states and project locations.
         </p>
       </motion.div>
 
@@ -2079,15 +2051,48 @@ xl:text-6xl font-black mt-6 text-slate-900"
         whileHover={{ y: -10, scale: 1.03 }}
         className="bg-white rounded-[30px] shadow-lg p-10 border hover:border-[#D6AE45] transition-all"
       >
-        <div className="text-6xl">🇮🇳</div>
+        <div className="text-6xl">👷</div>
 
         <h3 className="mt-8 text-2xl font-bold">
-          PAN India Operations
+          PROJECT-SITE EXPERIENCE
         </h3>
 
-        <p className="mt-5 leading-8 text-slate-600">
-          Supporting projects and organizations across
-          multiple states in India.
+        <p className="mt-5 leading-8 text-slate-600 text-justify">
+          Experience supporting renewable-energy, infrastructure and remote operating environments where rapid mobilisation and continuous coordination are critical.
+        </p>
+      </motion.div>
+
+      {/* Card */}
+
+      <motion.div
+        whileHover={{ y: -10, scale: 1.03 }}
+        className="bg-white rounded-[30px] shadow-lg p-10 border hover:border-[#D6AE45] transition-all"
+      >
+        <div className="text-6xl">🎯</div>
+
+        <h3 className="mt-8 text-2xl font-bold">
+          SINGLE-POINT ACCOUNTABILITY
+        </h3>
+
+        <p className="mt-5 leading-8 text-slate-600 text-justify">
+          One operating partner coordinating manpower, service delivery, local vendors and day-to-day requirements.
+        </p>
+      </motion.div>
+
+      {/* Card */}
+
+      <motion.div
+        whileHover={{ y: -10, scale: 1.03 }}
+        className="bg-white rounded-[30px] shadow-lg p-10 border hover:border-[#D6AE45] transition-all"
+      >
+        <div className="text-6xl">🎓</div>
+
+        <h3 className="mt-8 text-2xl font-bold">
+          TRAINED & SUPERVISED WORKFORCE
+        </h3>
+
+        <p className="mt-5 leading-8 text-slate-600 text-justify">
+          Structured recruitment, deployment and supervision across different workforce categories.
         </p>
       </motion.div>
 
@@ -2100,12 +2105,11 @@ xl:text-6xl font-black mt-6 text-slate-900"
         <div className="text-6xl">⚖️</div>
 
         <h3 className="mt-8 text-2xl font-bold">
-          Compliance Focused
+          STATUTORY COMPLIANCE
         </h3>
 
-        <p className="mt-5 leading-8 text-slate-600">
-          We ensure statutory compliance, payroll
-          management and workforce documentation.
+        <p className="mt-5 leading-8 text-slate-600 text-justify">
+          Focus on PF, ESIC, labour documentation and applicable statutory requirements.
         </p>
       </motion.div>
 
@@ -2115,15 +2119,31 @@ xl:text-6xl font-black mt-6 text-slate-900"
         whileHover={{ y: -10, scale: 1.03 }}
         className="bg-white rounded-[30px] shadow-lg p-10 border hover:border-[#D6AE45] transition-all"
       >
-        <div className="text-6xl">🤝</div>
+        <div className="text-6xl">👀</div>
 
         <h3 className="mt-8 text-2xl font-bold">
-          Client-Centric Approach
+          RESPONSIVE OPERATIONS
         </h3>
 
-        <p className="mt-5 leading-8 text-slate-600">
-          Every solution is tailored to the client's
-          operational and business requirements.
+        <p className="mt-5 leading-8 text-slate-600 text-justify">
+          Operational teams remain connected with clients and site representatives to address manpower and service requirements quickly.
+        </p>
+      </motion.div>
+
+      {/* Card */}
+
+      <motion.div
+        whileHover={{ y: -10, scale: 1.03 }}
+        className="bg-white rounded-[30px] shadow-lg p-10 border hover:border-[#D6AE45] transition-all"
+      >
+        <div className="text-6xl">🔀</div>
+
+        <h3 className="mt-8 text-2xl font-bold">
+          FLEXIBLE SERVICE MODELS
+        </h3>
+
+        <p className="mt-5 leading-8 text-slate-600 text-justify">
+          Solutions can be customised around manpower strength, project duration, site conditions and client operating requirements.
         </p>
       </motion.div>
 
@@ -2133,16 +2153,14 @@ xl:text-6xl font-black mt-6 text-slate-900"
         whileHover={{ y: -10, scale: 1.03 }}
         className="bg-gradient-to-br from-[#0F6A5B] to-[#07271f] text-white rounded-[30px] shadow-xl p-10"
       >
-        <div className="text-6xl">⭐</div>
+        <div className="text-6xl">24/7</div>
 
         <h3 className="mt-8 text-2xl font-bold">
-          One Trusted Partner
+          24×7 OPERATIONAL SUPPORT
         </h3>
 
         <p className="mt-5 leading-8 text-green-100">
-          From Security and Housekeeping to IFM,
-          Hospitality, Transportation and IT,
-          everything under one roof.
+          Support for critical services and project locations requiring continuous operational coordination.
         </p>
       </motion.div>
 
@@ -2350,7 +2368,7 @@ xl:text-6xl font-black text-white leading-tight">
 
           <li>Manpower Services</li>
 
-          <li>IT Solutions</li>
+        
 
         </ul>
 
