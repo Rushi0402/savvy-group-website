@@ -150,7 +150,7 @@ export default function ContactModal() {
                     placeholder="First Name"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="border rounded-lg p-4 outline-none focus:ring-2 focus:ring-orange-500"
+                    className="text-[#D6AE45] border rounded-lg p-4 outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
 
@@ -160,7 +160,7 @@ export default function ContactModal() {
                     placeholder="Last Name"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="border rounded-lg p-4 outline-none focus:ring-2 focus:ring-orange-500"
+                    className="text-[#D6AE45] border rounded-lg p-4 outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
                 </div>
@@ -172,7 +172,7 @@ export default function ContactModal() {
                     placeholder="Phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="border rounded-lg p-4 outline-none focus:ring-2 focus:ring-orange-500"
+                    className="text-[#D6AE45] border rounded-lg p-4 outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
 
@@ -182,7 +182,7 @@ export default function ContactModal() {
                     placeholder="Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="border rounded-lg p-4 outline-none focus:ring-2 focus:ring-orange-500"
+                    className="text-[#D6AE45] border rounded-lg p-4 outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
                 </div>
@@ -193,7 +193,7 @@ export default function ContactModal() {
                   placeholder="Message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="border rounded-lg p-4 w-full outline-none resize-none focus:ring-2 focus:ring-orange-500"
+                  className="text-[#D6AE45] border rounded-lg p-4 w-full outline-none resize-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
 
